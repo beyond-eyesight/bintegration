@@ -14,7 +14,6 @@ spring:
           username: beyond-eyesight
           password: chillvibe
 
-encrypt:
-  key: IMSTMMETRIC
+
 
 
