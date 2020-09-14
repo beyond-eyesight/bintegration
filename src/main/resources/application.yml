@@ -7,9 +7,9 @@ spring:
     config:
       server:
         encrypt:
-          enabled: false
+          enabled: true
         git:
-          uri: https://github.com/beyond-eyesight/config/
+          uri: https://github.com/beyond-eyesight/config.git
           search-paths: chatservice
           username: beyond-eyesight
           password: chillvibe
