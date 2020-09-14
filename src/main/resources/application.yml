@@ -6,6 +6,12 @@ spring:
   cloud:
     config:
       server:
-        native:
-          search-locations: file:///Users/junksound/IdeaProjects/beyond-eyesight/config/src/main/resources/config/chatservice
+        encrypt:
+          enabled: false
+        git:
+          uri: https://github.com/beyond-eyesight/config/
+          search-paths: chatservice
+          username: beyond-eyesight
+          password: chillvibe
+
 
