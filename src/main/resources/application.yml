@@ -1,16 +1,14 @@
 server:
   port: 8888
 spring:
-  profiles:
-    active: native
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/klimtever/config-repo
-          searchPaths: licensingservice,organizationservice
-          username: native-cloud-apps
-          password: 0ffended
+          uri: https://github.com/beyond-eyesight/config
+          searchPaths: chatservice
+          username: p-vibe
+          password: thisispassword
 
 
 
