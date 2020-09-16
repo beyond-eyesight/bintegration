@@ -9,7 +9,7 @@ spring:
           searchPaths: chatservice
           username: p-vibe
           password: thisispassword
-          label: develop
+      label: develop
 
 
 
