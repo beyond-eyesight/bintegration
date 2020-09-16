@@ -1,2 +1,8 @@
 encrypt:
   key: IMSTMMETRIC
+spring:
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: false
