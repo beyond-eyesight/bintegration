@@ -6,7 +6,7 @@ spring:
       server:
         git:
           uri: https://github.com/beyond-eyesight/config
-          searchPaths: chatservice
+          searchPaths: config/chatservice
           username: p-vibe
           password: thisispassword
       label: develop
