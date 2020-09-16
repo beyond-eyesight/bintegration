@@ -7,9 +7,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/beyond-eyesight/config
-          skipSslValidation: true
-          search-paths: chatservice
+          uri: https://github.com/beyond-eyesight/config/
+          searchPaths: chatservice
+
 
 
 
