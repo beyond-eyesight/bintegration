@@ -1,5 +1,5 @@
 ---
-name: Docs
+name: DOCS
 about: organize documentations to write
 title: "[DOCS]"
 labels: docs
