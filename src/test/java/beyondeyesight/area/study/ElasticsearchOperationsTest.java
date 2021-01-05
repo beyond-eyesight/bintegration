@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import beyondeyesight.area.domain.Zone;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.elasticsearch.client.ClientConfiguration;
@@ -34,7 +35,8 @@ public class ElasticsearchOperationsTest {
         try (ElasticsearchContainer container = new ElasticsearchContainer(ELASTICSEARCH_IMAGE).withExposedPorts(9200)) {
             container.start();
             // given
-            String zoneId = "test_id";
+            UUID zoneId = UUID.randomUUID();
+            String zoneName = "test_name";
             String indexName = "test_index_name";
             List<Point> points = Arrays.asList(
                 new Point(127.027926, 37.497175),
@@ -42,9 +44,9 @@ public class ElasticsearchOperationsTest {
                 new Point(126.924191, 37.521624),
                 new Point(126.972559, 37.554648),
                 new Point(127.027926, 37.497175));
-            Zone zone = new Zone(zoneId, GeoJsonPolygon.of(points));
+            Zone zone = new Zone(zoneId, zoneName, GeoJsonPolygon.of(points));
             IndexQuery indexQuery = new IndexQueryBuilder()
-                .withId(zoneId)
+                .withId(zoneId.toString())
                 .withObject(zone)
                 .build();
             IndexCoordinates index = IndexCoordinates.of(indexName);
@@ -54,9 +56,9 @@ public class ElasticsearchOperationsTest {
             //when
             String savedIndex = elasticsearchOperations.index(indexQuery, index);
             //then
-            assertThat(savedIndex).isEqualTo(zoneId);
+            assertThat(savedIndex).isEqualTo(zoneId.toString());
             //when
-            Zone queried = elasticsearchOperations.get(zoneId, Zone.class, index);
+            Zone queried = elasticsearchOperations.get(zoneId.toString(), Zone.class, index);
             //then
             assertThat(queried).isNotNull();
         }

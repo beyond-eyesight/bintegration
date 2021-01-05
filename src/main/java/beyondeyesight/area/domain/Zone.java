@@ -2,6 +2,7 @@ package beyondeyesight.area.domain;
 
 
 import java.util.Objects;
+import java.util.UUID;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -13,11 +14,13 @@ public class Zone {
 
     //todo: UUID로 바꾸기
     @Id
-    private final String id;
+    private final UUID id;
+    private final String name;
     private final GeoJson<? extends Iterable<?>> shape;
 
-    public Zone(String id, GeoJson<? extends Iterable<?>> shape) {
+    public Zone(UUID id, String name, GeoJson<? extends Iterable<?>> shape) {
         this.id = id;
+        this.name = name;
         this.shape = shape;
     }
 
