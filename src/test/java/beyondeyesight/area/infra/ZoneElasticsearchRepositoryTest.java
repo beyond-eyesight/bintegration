@@ -29,9 +29,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
     TestRestClientConfig.class}, loader = SpringBootContextLoader.class)
 public class ZoneElasticsearchRepositoryTest {
 
-    private final static UUID WANGSIMNI_ID = UUID.fromString("110841e3-e6fb-4191-8fd8-5674a5107c33");
+    private final static UUID WANGSIMNI_ID = UUID
+        .fromString("110841e3-e6fb-4191-8fd8-5674a5107c33");
     private final static UUID CAMPUS_ID = UUID.fromString("4f0a4a02-26c6-4441-915d-c0f61cda0178");
-    private final static UUID DORMITORY_ID = UUID.fromString("cd865f7d-3923-4065-a5e6-5c093e7b5442");
+    private final static UUID DORMITORY_ID = UUID
+        .fromString("cd865f7d-3923-4065-a5e6-5c093e7b5442");
 
     @Autowired
     private ZoneElasticsearchRepository zoneElasticsearchRepository;
@@ -68,13 +70,15 @@ public class ZoneElasticsearchRepositoryTest {
     }
 
     private List<Zone> setupZones() {
-        Zone wangsimni = new Zone(WANGSIMNI_ID, "Wangsimni", GeoJsonPolygon.of(
-            Arrays.asList(
-                new Point(37.56186460715209, 127.03878873296458),
-                new Point(37.55827838080759, 127.03892370195969),
-                new Point(37.55753238253602, 127.04159778997553),
-                new Point(37.561966294018255, 127.04168241338516),
-                new Point(37.56186460715209, 127.03878873296458)))
+        Zone wangsimni = new Zone(WANGSIMNI_ID, "Wangsimni",
+            GeoJsonPolygon.of(
+                Arrays.asList(
+                    new Point(37.56186460715209, 127.03878873296458),
+                    new Point(37.55827838080759, 127.03892370195969),
+                    new Point(37.55753238253602, 127.04159778997553),
+                    new Point(37.561966294018255, 127.04168241338516),
+                    new Point(37.56186460715209, 127.03878873296458))
+            )
         );
 
         Zone campus = new Zone(CAMPUS_ID, "Campus", GeoJsonPolygon.of(
