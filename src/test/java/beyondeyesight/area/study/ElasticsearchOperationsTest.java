@@ -54,7 +54,7 @@ public class ElasticsearchOperationsTest {
             //when
             String savedIndex = elasticsearchOperations.index(indexQuery, index);
             //then
-            assertThat(savedIndex).isEqualTo(indexName);
+            assertThat(savedIndex).isEqualTo(zoneId);
             //when
             Zone queried = elasticsearchOperations.get(zoneId, Zone.class, index);
             //then
