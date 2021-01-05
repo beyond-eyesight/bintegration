@@ -5,8 +5,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.client.ClientConfiguration;
 import org.springframework.data.elasticsearch.client.RestClients;
 import org.springframework.data.elasticsearch.config.AbstractElasticsearchConfiguration;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
 @Configuration
+@EnableElasticsearchRepositories(basePackages = "beyondeyesight.area.infra.persistence")
 public class RestClientConfig extends AbstractElasticsearchConfiguration {
 
     @Override
