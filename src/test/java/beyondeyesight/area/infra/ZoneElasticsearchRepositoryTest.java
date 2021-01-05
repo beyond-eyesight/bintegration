@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -35,14 +36,6 @@ public class ZoneElasticsearchRepositoryTest {
     @Autowired
     private ZoneElasticsearchRepository zoneElasticsearchRepository;
 
-    private static Stream<Arguments> provideZoneIds() {
-        return Stream.of(
-            Arguments.of(WANGSIMNI_ID),
-            Arguments.of(CAMPUS_ID),
-            Arguments.of(DORMITORY_ID)
-        );
-    }
-
     @BeforeEach
     public void setup() {
         List<Zone> zones = setupZones();
@@ -55,6 +48,23 @@ public class ZoneElasticsearchRepositoryTest {
     public void findById(UUID id) {
         Zone queried = zoneElasticsearchRepository.findById(id).orElse(null);
         assertThat(queried).isNotNull();
+    }
+
+    @Test
+    public void findAll() {
+        Iterable<Zone> all = zoneElasticsearchRepository.findAll();
+        assertThat(all).hasSize(
+            Arrays.asList(WANGSIMNI_ID, CAMPUS_ID, DORMITORY_ID).size()
+        );
+        System.out.println(all);
+    }
+
+    private static Stream<Arguments> provideZoneIds() {
+        return Stream.of(
+            Arguments.of(WANGSIMNI_ID),
+            Arguments.of(CAMPUS_ID),
+            Arguments.of(DORMITORY_ID)
+        );
     }
 
     private List<Zone> setupZones() {

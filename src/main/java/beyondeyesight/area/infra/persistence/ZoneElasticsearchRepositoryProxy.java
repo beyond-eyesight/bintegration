@@ -2,6 +2,8 @@ package beyondeyesight.area.infra.persistence;
 
 import beyondeyesight.area.domain.Zone;
 import beyondeyesight.area.domain.repository.ZoneRepository;
+import java.util.List;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -15,5 +17,16 @@ public class ZoneElasticsearchRepositoryProxy implements ZoneRepository {
     @Override
     public Zone save(Zone zone) {
         return zoneElasticsearchRepository.save(zone);
+    }
+
+    @Override
+    public List<Zone> findAll() {
+        return (List<Zone>) zoneElasticsearchRepository.findAll();
+    }
+
+    @Override
+    public Zone findById(UUID id) {
+        return zoneElasticsearchRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException(String.format("다음에 해당하는 아이디를 찾을 수 없습니다: %s", id)));
     }
 }
