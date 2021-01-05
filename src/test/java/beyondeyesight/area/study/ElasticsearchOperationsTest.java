@@ -30,6 +30,7 @@ public class ElasticsearchOperationsTest {
 
     @Test
     public void saveAndGet() {
+        // todo: static method로 뺄지 고려
         try (ElasticsearchContainer container = new ElasticsearchContainer(ELASTICSEARCH_IMAGE).withExposedPorts(9200)) {
             container.start();
             // given
