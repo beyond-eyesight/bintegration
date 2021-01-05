@@ -1,6 +1,7 @@
 package beyondeyesight.area.domain;
 
 
+import java.util.Objects;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -26,5 +27,23 @@ public class Zone {
             "id='" + id + '\'' +
             ", shape=" + shape +
             '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Zone zone = (Zone) o;
+        return Objects.equals(id, zone.id) &&
+            Objects.equals(shape, zone.shape);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, shape);
     }
 }
