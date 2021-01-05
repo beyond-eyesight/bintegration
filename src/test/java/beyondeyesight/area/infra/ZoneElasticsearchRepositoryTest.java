@@ -19,7 +19,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ActiveProfiles("test")
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {TestRestClientConfig.class}, loader = SpringBootContextLoader.class)
+@ContextConfiguration(classes = {
+    TestRestClientConfig.class}, loader = SpringBootContextLoader.class)
 public class ZoneElasticsearchRepositoryTest {
 
     @Autowired
@@ -28,18 +29,18 @@ public class ZoneElasticsearchRepositoryTest {
 
     @Test
     public void saveAndFindById() {
-        List<Point> points = Arrays.asList(
-            new Point(127.027926, 37.497175),
-            new Point(126.991806, 37.571607),
-            new Point(126.924191, 37.521624),
-            new Point(126.972559, 37.554648),
-            new Point(127.027926, 37.497175));
-        GeoJsonPolygon geoJsonPolygon = GeoJsonPolygon.of(points);
-        Zone zone = new Zone("Wangsimni", geoJsonPolygon);
-        Zone save = zoneElasticsearchRepository.save(zone);
+        Zone wangsimni = new Zone("Wangsimni", GeoJsonPolygon.of(
+            Arrays.asList(
+                new Point(37.56186460715209, 127.03878873296458),
+                new Point(37.55827838080759, 127.03892370195969),
+                new Point(37.55753238253602, 127.04159778997553),
+                new Point(37.561966294018255, 127.04168241338516),
+                new Point(37.56186460715209, 127.03878873296458)))
+        );
+        Zone save = zoneElasticsearchRepository.save(wangsimni);
 
-        Zone wangsimni = zoneElasticsearchRepository.findById("Wangsimni").orElse(null);
-        assertThat(wangsimni).isNotNull();
+        Zone queried = zoneElasticsearchRepository.findById("Wangsimni").orElse(null);
+        assertThat(queried).isNotNull();
 
     }
 }
