@@ -44,7 +44,7 @@ public class ElasticsearchOperationsTest {
                 new Point(127.027926, 37.497175));
             Zone zone = new Zone(zoneId, GeoJsonPolygon.of(points));
             IndexQuery indexQuery = new IndexQueryBuilder()
-                .withId(zone.getId())
+                .withId(zoneId)
                 .withObject(zone)
                 .build();
             IndexCoordinates index = IndexCoordinates.of(indexName);
