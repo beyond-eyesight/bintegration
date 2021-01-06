@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_DATABASE: beyondeyesight
+      MYSQL_USER: beyondeyesight
+      MYSQL_ROOT_PASSWORD: ttkmw
+      MYSQL_PASSWORD: ttkmw
+    volumes:
+      - data:/var/lib/mysql
+    container_name: mysql
+    ports:
+      - 3306:3306
+volumes:
+  data:
