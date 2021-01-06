@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-@Table("user_role")
+@Table(name = "user_role")
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UserRole extends BaseEntity {
