@@ -1,4 +1,4 @@
-package beyondeyesight.user.infra.model;
+package beyondeyesight.user.domain;
 
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,10 +17,4 @@ public class UserPrincipal extends User {
             accountNonLocked,
             authorities);
     }
-
-//    public static UserPrincipal fromUser(User user) {
-//        return new UserPrincipal()
-//    }
-
-
 }
