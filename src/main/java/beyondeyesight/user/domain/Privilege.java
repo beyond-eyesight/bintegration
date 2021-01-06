@@ -9,5 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Privilege extends BaseEntity {
+    private String name;
 
 }
