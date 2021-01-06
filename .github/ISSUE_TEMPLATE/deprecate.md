@@ -2,7 +2,7 @@
 name: Deprecate
 about: should be depreacted
 title: "[DEPRECATE]"
-labels: deprecate
+labels: ''
 assignees: ''
 
 ---
