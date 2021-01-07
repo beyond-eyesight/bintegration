@@ -19,6 +19,13 @@ public class User extends BaseEntity {
     // todo: 여기서 선언할 필요가 없다. 이제 파이널이 아니라..
     private Roles roles;
 
+    public User(String email, String name, String password) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.roles = Roles.empty();
+    }
+
     public User addRoles(Roles roles) {
         this.roles.merge(roles);
         return new User(this.email, this.name, this.password, roles);
