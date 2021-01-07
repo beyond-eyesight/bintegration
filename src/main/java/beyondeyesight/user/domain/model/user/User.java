@@ -16,8 +16,9 @@ public class User extends BaseEntity {
     private String email;
     private String name;
     private String password;
-    @NonNull
+
     @Embedded
+    @NonNull
     private Roles roles;
 
     // todo: 캡슐화
@@ -28,6 +29,7 @@ public class User extends BaseEntity {
         this.roles = Roles.empty();
     }
 
+    // entitiy에 있는 애들 다 보이드로 바꾸기
     public User addRoles(Roles roles) {
         this.roles.merge(roles);
         return new User(this.email, this.name, this.password, roles);

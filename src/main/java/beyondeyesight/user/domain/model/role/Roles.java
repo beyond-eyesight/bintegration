@@ -1,6 +1,6 @@
 package beyondeyesight.user.domain.model.role;
 
-import beyondeyesight.user.domain.model.user.User;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -16,7 +16,7 @@ import lombok.NonNull;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 // access
 @AllArgsConstructor
-public class Roles  {
+public class Roles {
 
     @NonNull
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -26,12 +26,37 @@ public class Roles  {
         return new Roles(Collections.emptyList());
     }
 
-    public static Roles of(User user, Role role) {
-        return new Roles(Collections.singletonList(new UserRole(user, role)));
-    }
-
     public static Roles of(UserRole userRole) {
         return new Roles(Collections.singletonList(userRole));
+    }
+
+    public Roles add(UserRole role) {
+        List<UserRole> roles = new ArrayList<>(this.roles);
+        roles.add(role);
+        return new Roles(roles);
+    }
+
+    public Roles merge(Roles roles) {
+        // todo: validation logic - user가 같은지
+        List<UserRole> merged = new ArrayList<>(this.roles);
+        merged.addAll(roles.roles);
+        return new Roles(merged);
+    }
+
+    // todo: 아예 리턴 타입을 Privileges로 하는게 나을
+    public List<Privilege> toPrivileges() {
+        return this.roles.stream()
+            .map(UserRole::getRole)
+            .map(Role::getPrivileges)
+            .reduce((List<Privilege> a, List<Privilege> b) -> {
+                List<Privilege> merged = new ArrayList<>(a);
+                merged.addAll(b);
+                return merged;
+            }).orElseThrow(IllegalStateException::new);
+    }
+
+    public int count() {
+        return roles.size();
     }
 
     @Override
@@ -56,9 +81,5 @@ public class Roles  {
     @Override
     public int hashCode() {
         return Objects.hash(roles);
-    }
-
-    public void merge(Roles roles) {
-
     }
 }

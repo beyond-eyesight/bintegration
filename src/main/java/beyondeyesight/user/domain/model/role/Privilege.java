@@ -5,11 +5,16 @@ import javax.persistence.Entity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-public class Privilege extends BaseEntity {
+public class Privilege extends BaseEntity implements GrantedAuthority {
     private String name;
 
+    @Override
+    public String getAuthority() {
+        return this.name;
+    }
 }
