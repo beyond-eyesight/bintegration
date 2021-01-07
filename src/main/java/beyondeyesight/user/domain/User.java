@@ -16,5 +16,11 @@ public class User extends BaseEntity {
     private String password;
     @NonNull
     @Embedded
-    private final Roles roles = Roles.empty();
+    // todo: 여기서 선언할 필요가 없다. 이제 파이널이 아니라..
+    private Roles roles;
+
+    public User addRoles(Roles roles) {
+        this.roles.merge(roles);
+        return new User(this.email, this.name, this.password, roles);
+    }
 }

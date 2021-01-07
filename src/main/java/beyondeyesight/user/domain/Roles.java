@@ -24,6 +24,10 @@ public class Roles  {
         return new Roles(Collections.emptyList());
     }
 
+    public static Roles of(UserRole userRole) {
+        return new Roles(Collections.singletonList(userRole));
+    }
+
     @Override
     public String toString() {
         return "Roles{" +
@@ -46,5 +50,9 @@ public class Roles  {
     @Override
     public int hashCode() {
         return Objects.hash(roles);
+    }
+
+    public void merge(Roles roles) {
+
     }
 }
