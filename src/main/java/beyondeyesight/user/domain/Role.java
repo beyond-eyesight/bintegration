@@ -3,18 +3,20 @@ package beyondeyesight.user.domain;
 import java.util.Objects;
 import javax.persistence.Entity;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 public class Role extends BaseEntity {
     private static final String DEFAULT_NAME = "Outsider";
 
     private String name;
 
-    static Role initialize() {
+    public Role(String name) {
+        this.name = name;
+    }
+
+    public static Role initialize() {
         return new Role(DEFAULT_NAME);
     }
 

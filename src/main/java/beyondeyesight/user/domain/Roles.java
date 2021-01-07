@@ -20,8 +20,8 @@ public class Roles  {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserRole> roles;
 
-    static Roles initialize(User user) {
-        return new Roles(Collections.singletonList(new UserRole(user, Role.initialize())));
+    public static Roles empty() {
+        return new Roles(Collections.emptyList());
     }
 
     @Override

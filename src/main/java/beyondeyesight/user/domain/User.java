@@ -14,8 +14,7 @@ public class User extends BaseEntity {
     private String email;
     private String name;
     private String password;
-
     @NonNull
     @Embedded
-    private final Roles roles = Roles.initialize(this);
+    private final Roles roles = Roles.empty();
 }

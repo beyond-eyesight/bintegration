@@ -18,7 +18,7 @@ public class UserJpaRepositoryTest {
 
     @Test
     public void save() {
-        User user = new User("wom2277@naver.com", "ttkmw", "ttkmw", null);
+        User user = new User("wom2277@naver.com", "ttkmw", "ttkmw");
         User saved = userJpaRepository.save(user);
         assertThat(saved).isNotNull();
     }
