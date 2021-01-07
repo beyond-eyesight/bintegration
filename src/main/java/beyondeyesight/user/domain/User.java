@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -14,6 +15,7 @@ public class User extends BaseEntity {
     private String name;
     private String password;
 
+    @NonNull
     @Embedded
-    private Roles roles;
+    private final Roles roles = Roles.initialize(this);
 }
