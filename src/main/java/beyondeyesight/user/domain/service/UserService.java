@@ -33,9 +33,7 @@ public class UserService {
         // todo: 만약 persist하지 않은 user가 들어오면 어떻게 되는지 테스트!
         role = roleRepository.save(role);
         UserRole userRole = userRoleRepository.save(new UserRole(user, role));
-        user = user.addRoles(Roles.of(userRole));
-        // todo: 이거 없어도 업데이트 되는지 보기
-        return userRepository.save(user);
+        return user.addRoles(Roles.of(userRole));
     }
 
 }

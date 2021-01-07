@@ -14,6 +14,7 @@ public class Role extends BaseEntity {
     private String name;
 
     private Role(String name) {
+        super();
         this.name = name;
     }
 
