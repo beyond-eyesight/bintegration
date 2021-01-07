@@ -1,5 +1,6 @@
 package beyondeyesight.user.domain.model.role;
 
+import beyondeyesight.user.domain.model.user.User;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -13,6 +14,7 @@ import lombok.NonNull;
 
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+// access
 @AllArgsConstructor
 public class Roles  {
 
@@ -22,6 +24,10 @@ public class Roles  {
 
     public static Roles empty() {
         return new Roles(Collections.emptyList());
+    }
+
+    public static Roles of(User user, Role role) {
+        return new Roles(Collections.singletonList(new UserRole(user, role)));
     }
 
     public static Roles of(UserRole userRole) {
