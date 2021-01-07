@@ -1,6 +1,6 @@
 package beyondeyesight.user.domain.repository;
 
-import beyondeyesight.user.domain.Role;
+import beyondeyesight.user.domain.model.role.Role;
 
 public interface RoleRepository {
 

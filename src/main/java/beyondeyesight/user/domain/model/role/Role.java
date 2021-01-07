@@ -1,5 +1,6 @@
-package beyondeyesight.user.domain;
+package beyondeyesight.user.domain.model.role;
 
+import beyondeyesight.user.domain.model.BaseEntity;
 import java.util.Objects;
 import javax.persistence.Entity;
 import lombok.AccessLevel;
@@ -12,10 +13,11 @@ public class Role extends BaseEntity {
 
     private String name;
 
-    public Role(String name) {
+    private Role(String name) {
         this.name = name;
     }
 
+    // todo: default 접근
     public static Role initialize() {
         return new Role(DEFAULT_NAME);
     }

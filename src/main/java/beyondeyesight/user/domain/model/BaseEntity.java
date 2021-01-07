@@ -1,4 +1,4 @@
-package beyondeyesight.user.domain;
+package beyondeyesight.user.domain.model;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

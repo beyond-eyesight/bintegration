@@ -1,5 +1,7 @@
-package beyondeyesight.user.domain;
+package beyondeyesight.user.domain.model.role;
 
+import beyondeyesight.user.domain.model.BaseEntity;
+import beyondeyesight.user.domain.model.user.User;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,6 +24,7 @@ public class UserRole extends BaseEntity {
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
+    // default
     public UserRole(User user, Role role) {
         // todo: check! nullable로 이미 db 레이어에서 검증이 있기에 중복...? 없는 게 나을지 확인
         validate(user, role);

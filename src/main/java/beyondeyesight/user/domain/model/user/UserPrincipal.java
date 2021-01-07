@@ -1,4 +1,4 @@
-package beyondeyesight.user.domain;
+package beyondeyesight.user.domain.model.user;
 
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;

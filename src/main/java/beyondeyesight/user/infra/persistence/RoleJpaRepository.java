@@ -1,6 +1,6 @@
 package beyondeyesight.user.infra.persistence;
 
-import beyondeyesight.user.domain.Role;
+import beyondeyesight.user.domain.model.role.Role;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 

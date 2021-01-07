@@ -1,5 +1,6 @@
-package beyondeyesight.user.domain;
+package beyondeyesight.user.domain.model.role;
 
+import beyondeyesight.user.domain.model.BaseEntity;
 import javax.persistence.Entity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
