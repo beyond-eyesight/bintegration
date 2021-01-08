@@ -29,7 +29,7 @@ class RoleJpaRepositoryTest {
         assertThat(saved.getId()).isNotNull();
         assertThat(saved.countPrivileges()).isEqualTo(0);
 
-        Privilege readOnly = new Privilege("READ_ONLY");
+        Privilege readOnly = Privilege.of("READ_ONLY");
         saved.add(RolePrivilege.of(saved, readOnly));
         assertThat(saved.countPrivileges()).isEqualTo(1);
 

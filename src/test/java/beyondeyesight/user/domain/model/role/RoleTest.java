@@ -8,7 +8,7 @@ class RoleTest {
     @Test
     public void add() {
         Role role = Role.withoutPrivilege("ROLE_NAME");
-        Privilege readOnly = new Privilege("READ_ONLY");
+        Privilege readOnly = Privilege.of("READ_ONLY");
         role.add(RolePrivilege.of(role, readOnly));
         assertThat(role.countPrivileges()).isEqualTo(1);
     }

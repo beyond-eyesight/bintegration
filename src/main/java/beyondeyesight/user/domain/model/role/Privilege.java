@@ -9,12 +9,16 @@ import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Privilege extends BaseEntity implements GrantedAuthority {
     private String name;
 
     @Override
     public String getAuthority() {
         return this.name;
+    }
+
+    public static Privilege of(String name) {
+        return new Privilege(name);
     }
 }

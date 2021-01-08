@@ -13,9 +13,9 @@ public class RolesTest {
     public void merge() {
         Role outsiderRole = Role.initialize();
 
-        Privilege readOnly = new Privilege("READ_ONLY");
-        Privilege writeOnly = new Privilege("WRITE_ONLY");
-        Privilege readAndWrite = new Privilege("READ_AND_WRITE");
+        Privilege readOnly = Privilege.of("READ_ONLY");
+        Privilege writeOnly = Privilege.of("WRITE_ONLY");
+        Privilege readAndWrite = Privilege.of("READ_AND_WRITE");
 
         Role memberRole = Role.withoutPrivilege("Member");
         for (Privilege privilege : Arrays.asList(readOnly, writeOnly, readAndWrite)) {
@@ -35,9 +35,9 @@ public class RolesTest {
     @Test
     public void toPrivileges() {
         List<Privilege> privileges = Arrays.asList(
-            new Privilege("READ_ONLY"),
-            new Privilege("WRITE_ONLY"),
-            new Privilege("READ_AND_WRITE")
+            Privilege.of("READ_ONLY"),
+            Privilege.of("WRITE_ONLY"),
+            Privilege.of("READ_AND_WRITE")
         );
 
         Role memberRole = Role.withoutPrivilege("Member");
