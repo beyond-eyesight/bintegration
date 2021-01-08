@@ -30,12 +30,6 @@ public class Roles {
         return new Roles(Collections.singletonList(userRole));
     }
 
-    public Roles add(UserRole role) {
-        List<UserRole> roles = new ArrayList<>(this.roles);
-        roles.add(role);
-        return new Roles(roles);
-    }
-
     public Roles merge(Roles roles) {
         // todo: validation logic - user가 같은지
         List<UserRole> merged = new ArrayList<>(this.roles);
@@ -43,7 +37,6 @@ public class Roles {
         return new Roles(merged);
     }
 
-    // todo: 아예 리턴 타입을 Privileges로 하는게 나을
     public List<Privilege> toPrivileges() {
         Privileges privileges = this.roles.stream()
             .map(UserRole::getRole)
@@ -53,7 +46,13 @@ public class Roles {
         return privileges.get();
     }
 
-    public int count() {
+    Roles add(UserRole role) {
+        List<UserRole> roles = new ArrayList<>(this.roles);
+        roles.add(role);
+        return new Roles(roles);
+    }
+
+    int count() {
         return roles.size();
     }
 

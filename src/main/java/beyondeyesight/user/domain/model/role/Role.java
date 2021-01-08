@@ -1,7 +1,6 @@
 package beyondeyesight.user.domain.model.role;
 
 import beyondeyesight.user.domain.model.BaseEntity;
-import java.util.List;
 import java.util.Objects;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;

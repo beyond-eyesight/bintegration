@@ -7,28 +7,21 @@ import javax.persistence.CascadeType;
 import javax.persistence.Embeddable;
 import javax.persistence.OneToMany;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-// todo: 접근제어자
-public class Privileges {
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+class Privileges {
 
     @NonNull
     @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RolePrivilege> privileges;
 
-    Privileges(List<RolePrivilege> privileges) {
-        this.privileges = privileges;
-    }
-
     static Privileges empty() {
         return new Privileges(Collections.emptyList());
-    }
-
-    static Privileges of(RolePrivilege privilege) {
-        return new Privileges(Collections.singletonList(privilege));
     }
 
     List<Privilege> get() {
@@ -39,17 +32,17 @@ public class Privileges {
         return privileges;
     }
 
-    public Privileges add(RolePrivilege privilege) {
+    Privileges add(RolePrivilege privilege) {
         List<RolePrivilege> privileges = new ArrayList<>(this.privileges);
         privileges.add(privilege);
         return new Privileges(privileges);
     }
 
-    public int count() {
+    int count() {
         return this.privileges.size();
     }
 
-    public Privileges merge(Privileges privileges) {
+    Privileges merge(Privileges privileges) {
         List<RolePrivilege> merged = new ArrayList<>(this.privileges);
         merged.addAll(privileges.privileges);
         return new Privileges(merged);
