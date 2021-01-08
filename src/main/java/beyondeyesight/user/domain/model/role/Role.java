@@ -35,13 +35,17 @@ public class Role extends BaseEntity {
         return new Role(name, Privileges.empty());
     }
 
-    void add(Privilege privilege) {
-        this.privileges = this.privileges.add(this, privilege);
+    void add(RolePrivilege privilege) {
+        this.privileges = this.privileges.add(privilege);
     }
 
     // todo: 리턴타입 그냥 Privilges로
-    List<Privilege> getPrivileges() {
-        return this.privileges.get();
+    Privileges getPrivileges() {
+        return this.privileges;
+    }
+
+    int countPrivileges() {
+        return this.privileges.count();
     }
 
     @Override
@@ -69,9 +73,5 @@ public class Role extends BaseEntity {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), name);
-    }
-
-    public int countPrivileges() {
-        return this.privileges.count();
     }
 }

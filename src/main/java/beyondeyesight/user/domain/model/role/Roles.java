@@ -45,14 +45,12 @@ public class Roles {
 
     // todo: 아예 리턴 타입을 Privileges로 하는게 나을
     public List<Privilege> toPrivileges() {
-        return this.roles.stream()
+        Privileges privileges = this.roles.stream()
             .map(UserRole::getRole)
             .map(Role::getPrivileges)
-            .reduce((List<Privilege> a, List<Privilege> b) -> {
-                List<Privilege> merged = new ArrayList<>(a);
-                merged.addAll(b);
-                return merged;
-            }).orElseThrow(IllegalStateException::new);
+            .reduce(Privileges::merge)
+            .orElseThrow(IllegalStateException::new);
+        return privileges.get();
     }
 
     public int count() {

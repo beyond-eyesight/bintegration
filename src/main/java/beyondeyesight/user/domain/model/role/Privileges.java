@@ -39,13 +39,19 @@ public class Privileges {
         return privileges;
     }
 
-    public Privileges add(Role role, Privilege privilege) {
+    public Privileges add(RolePrivilege privilege) {
         List<RolePrivilege> privileges = new ArrayList<>(this.privileges);
-        privileges.add(new RolePrivilege(role, privilege));
+        privileges.add(privilege);
         return new Privileges(privileges);
     }
 
     public int count() {
         return this.privileges.size();
+    }
+
+    public Privileges merge(Privileges privileges) {
+        List<RolePrivilege> merged = new ArrayList<>(this.privileges);
+        merged.addAll(privileges.privileges);
+        return new Privileges(merged);
     }
 }

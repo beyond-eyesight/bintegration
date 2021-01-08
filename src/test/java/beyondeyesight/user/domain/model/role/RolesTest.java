@@ -19,7 +19,7 @@ public class RolesTest {
 
         Role memberRole = Role.withoutPrivilege("Member");
         for (Privilege privilege : Arrays.asList(readOnly, writeOnly, readAndWrite)) {
-            memberRole.add(privilege);
+            memberRole.add(new RolePrivilege(memberRole, privilege));
         }
 
 
@@ -42,7 +42,7 @@ public class RolesTest {
 
         Role memberRole = Role.withoutPrivilege("Member");
         for (Privilege privilege : privileges) {
-            memberRole.add(privilege);
+            memberRole.add(new RolePrivilege(memberRole, privilege));
         }
 
         User user = new User("email", "name", "password");
