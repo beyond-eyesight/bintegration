@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class RolePrivilege extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id", nullable = false)
@@ -25,5 +25,7 @@ public class RolePrivilege extends BaseEntity {
     @JoinColumn(name = "privilege_id", nullable = false)
     private Privilege privilege;
 
-
+    public static RolePrivilege of(Role role, Privilege privilege) {
+        return new RolePrivilege(role, privilege);
+    }
 }

@@ -9,7 +9,7 @@ class RoleTest {
     public void add() {
         Role role = Role.withoutPrivilege("ROLE_NAME");
         Privilege readOnly = new Privilege("READ_ONLY");
-        role.add(new RolePrivilege(role, readOnly));
+        role.add(RolePrivilege.of(role, readOnly));
         assertThat(role.countPrivileges()).isEqualTo(1);
     }
 }

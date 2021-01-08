@@ -30,21 +30,20 @@ public class Role extends BaseEntity {
         return new Role(DEFAULT_NAME, Privileges.empty());
     }
 
-    static Role withoutPrivilege(String name) {
+    public static Role withoutPrivilege(String name) {
         return new Role(name, Privileges.empty());
     }
 
-    void add(RolePrivilege privilege) {
+    public void add(RolePrivilege privilege) {
         this.privileges = this.privileges.add(privilege);
     }
 
-    // todo: 리턴타입 그냥 Privilges로
-    Privileges getPrivileges() {
-        return this.privileges;
+    public int countPrivileges() {
+        return this.privileges.count();
     }
 
-    int countPrivileges() {
-        return this.privileges.count();
+    Privileges getPrivileges() {
+        return this.privileges;
     }
 
     @Override
