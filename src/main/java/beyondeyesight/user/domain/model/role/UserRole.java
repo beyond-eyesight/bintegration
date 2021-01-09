@@ -43,7 +43,6 @@ public class UserRole extends BaseEntity {
     @Override
     public String toString() {
         return "UserRole{" +
-            "user=" + user +
             ", role=" + role +
             '}';
     }

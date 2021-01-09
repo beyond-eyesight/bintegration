@@ -11,7 +11,7 @@ import lombok.NonNull;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class User extends BaseEntity {
     private String email;
     private String name;
@@ -21,17 +21,32 @@ public class User extends BaseEntity {
     @NonNull
     private Roles roles;
 
-    // todo: 캡슐화
-    public User(String email, String name, String password) {
+    private User(String email, String name, String password) {
         this.email = email;
         this.name = name;
         this.password = password;
         this.roles = Roles.empty();
     }
 
-    // entitiy에 있는 애들 다 보이드로 바꾸기
-    public User addRoles(Roles roles) {
-        this.roles.merge(roles);
-        return new User(this.email, this.name, this.password, roles);
+    public static User withoutRole(String email, String name, String password) {
+        return new User(email, name, password);
+    }
+
+    public void addRoles(Roles roles) {
+        this.roles = this.roles.merge(roles);
+    }
+
+    public UserPrincipal toPrincipal() {
+        return new UserPrincipal(getId().toString(), password, roles.toPrivileges());
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+            "email='" + email + '\'' +
+            ", name='" + name + '\'' +
+            ", password='" + password + '\'' +
+            ", roles=" + roles +
+            '}';
     }
 }

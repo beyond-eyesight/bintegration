@@ -2,19 +2,17 @@ package beyondeyesight.user.infra.persistence;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import beyondeyesight.user.domain.model.role.Privilege;
 import beyondeyesight.user.domain.model.role.Role;
-import beyondeyesight.user.domain.model.role.RolePrivilege;
 import beyondeyesight.user.domain.model.role.UserRole;
 import beyondeyesight.user.domain.model.user.User;
-import beyondeyesight.user.domain.model.user.UserPrincipal;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.ActiveProfiles;
 
 
-@SpringBootTest
+@ActiveProfiles("test")
+@DataJpaTest
 class UserRoleJpaRepositoryTest {
     @Autowired
     private UserRoleJpaRepository userRoleJpaRepository;
@@ -25,35 +23,25 @@ class UserRoleJpaRepositoryTest {
     @Autowired
     private RoleJpaRepository roleJpaRepository;
 
-    @Autowired
-    private PrivilegeJpaRepository privilegeJpaRepository;
-
-    @Autowired
-    private RolePrivilegeJpaRepository rolePrivilegeJpaRepository;
-
     @Test
-    public void save() {
+    public void saveAndFindById() {
         // given
-        final String ROLE_NAME = "Role";
-        final String PRIVILEGE_NAME = "Privilege";
-        Role role = Role.withoutPrivilege(ROLE_NAME);
+        Role role = Role.outsider();
         role = roleJpaRepository.save(role);
-        Privilege privilege = Privilege.of(PRIVILEGE_NAME);
-        privilegeJpaRepository.save(privilege);
-        RolePrivilege rolePrivilege = RolePrivilege.of(role, privilege);
-        rolePrivilege = rolePrivilegeJpaRepository.save(rolePrivilege);
-        User user = userJpaRepository.save(new User("wom2277@naver.com", "geunwon", "1234"));
+        User user = userJpaRepository.save(User.withoutRole("wom2277@naver.com", "geunwon", "1234"));
         UserRole initialized = new UserRole(user, role);
         assertThat(initialized.getId()).isNull();
 
-        //when
+        // when
         UserRole saved = userRoleJpaRepository.save(initialized);
-        //then
+        // then
         assertThat(saved).isNotNull();
         assertThat(saved.getId()).isNotNull();
 
-        User found = userJpaRepository.findById(user.getId())
+        // when
+        UserRole found = userRoleJpaRepository.findById(saved.getId())
             .orElseThrow(IllegalStateException::new);
+        // then
         assertThat(found).isNotNull();
     }
 }

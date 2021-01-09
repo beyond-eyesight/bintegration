@@ -24,7 +24,7 @@ public class RolesTest {
 
 
 
-        User user = new User("email", "name", "password");
+        User user = User.withoutRole("email", "name", "password");
 
         Roles roles1 = Roles.of(new UserRole(user, outsiderRole));
         Roles roles2 = Roles.of(new UserRole(user, memberRole));
@@ -45,7 +45,7 @@ public class RolesTest {
             memberRole.add(RolePrivilege.of(memberRole, privilege));
         }
 
-        User user = new User("email", "name", "password");
+        User user = User.withoutRole("email", "name", "password");
 
         Roles roles = Roles.empty();
         roles = roles.add(new UserRole(user, memberRole));
@@ -56,7 +56,7 @@ public class RolesTest {
     @Test
     void add() {
         Role role = Role.outsider();
-        User user = new User("email", "name", "password");
+        User user = User.withoutRole("email", "name", "password");
         UserRole userRole = new UserRole(user, role);
         Roles roles = Roles.empty();
 

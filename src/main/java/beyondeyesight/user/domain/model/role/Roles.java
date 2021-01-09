@@ -14,8 +14,7 @@ import lombok.NonNull;
 
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-// access
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Roles {
 
     @NonNull
@@ -46,7 +45,7 @@ public class Roles {
         return privileges.get();
     }
 
-    Roles add(UserRole role) {
+    public Roles add(UserRole role) {
         List<UserRole> roles = new ArrayList<>(this.roles);
         roles.add(role);
         return new Roles(roles);

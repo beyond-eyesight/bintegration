@@ -25,7 +25,7 @@ public class UserService {
     }
 
     User create(String email, String name, String password) {
-        User user = new User(email, name, password);
+        User user = User.withoutRole(email, name, password);
         return addRole(user, Role.outsider());
     }
 
@@ -33,7 +33,8 @@ public class UserService {
         // todo: 만약 persist하지 않은 user가 들어오면 어떻게 되는지 테스트!
         role = roleRepository.save(role);
         UserRole userRole = userRoleRepository.save(new UserRole(user, role));
-        return user.addRoles(Roles.of(userRole));
+        user.addRoles(Roles.of(userRole));
+        return user;
     }
 
 }
