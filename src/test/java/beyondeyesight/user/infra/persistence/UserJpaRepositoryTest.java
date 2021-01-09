@@ -9,12 +9,11 @@ import beyondeyesight.user.domain.model.user.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
-
-@SpringBootTest
+@ActiveProfiles("test")
+@DataJpaTest
 public class UserJpaRepositoryTest {
 
     @Autowired
@@ -36,12 +35,12 @@ public class UserJpaRepositoryTest {
     @Test
     @Transactional
     public void saveAndFindByEmail() {
-//        Role role = Role.outsider();
-//        role = roleJpaRepository.save(role);
-//        User user = userJpaRepository.save(User.withoutRole("wom2277@naver.com", "geunwon", "1234"));
-//
-//        UserRole userRole = userRoleJpaRepository.save(new UserRole(user, role));
-//        user.addRoles(Roles.of(userRole));
+        Role role = Role.outsider();
+        role = roleJpaRepository.save(role);
+        User user = userJpaRepository.save(User.withoutRole("wom2277@naver.com", "geunwon", "1234"));
+
+        UserRole userRole = userRoleJpaRepository.save(new UserRole(user, role));
+        user.addRoles(Roles.of(userRole));
 
         User foundByEmail = userJpaRepository.findByEmail("wom2277@naver.com");
         System.out.println(foundByEmail);
