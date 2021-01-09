@@ -2,13 +2,17 @@ package beyondeyesight.user.infra.persistence;
 
 import beyondeyesight.user.domain.model.role.UserRole;
 import beyondeyesight.user.domain.repository.UserRoleRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@RequiredArgsConstructor
 public class UserRoleJpaRepositoryProxy implements UserRoleRepository {
+
+    private final UserRoleJpaRepository userRoleJpaRepository;
 
     @Override
     public UserRole save(UserRole userRole) {
-        return null;
+        return userRoleJpaRepository.save(userRole);
     }
 }
