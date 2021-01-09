@@ -2,6 +2,7 @@ package beyondeyesight.user.domain.model.role;
 
 import beyondeyesight.user.domain.model.BaseEntity;
 import java.util.Objects;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import lombok.AccessLevel;
@@ -13,6 +14,7 @@ import lombok.NonNull;
 public class Role extends BaseEntity {
     private static final String DEFAULT_NAME = "Outsider";
 
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Embedded

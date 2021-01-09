@@ -3,6 +3,7 @@ package beyondeyesight.user.domain.model.user;
 import beyondeyesight.user.domain.model.BaseEntity;
 import beyondeyesight.user.domain.model.role.Roles;
 import java.util.UUID;
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import lombok.AccessLevel;
@@ -14,8 +15,11 @@ import lombok.NonNull;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class User extends BaseEntity {
+    @Column(nullable = false, unique = true)
     private String email;
+    @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String password;
 
     @Embedded
