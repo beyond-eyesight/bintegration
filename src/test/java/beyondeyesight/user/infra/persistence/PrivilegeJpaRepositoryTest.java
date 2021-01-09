@@ -1,12 +1,12 @@
 package beyondeyesight.user.infra.persistence;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import beyondeyesight.user.domain.model.role.Privilege;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 @ActiveProfiles("test")
@@ -24,5 +24,9 @@ public class PrivilegeJpaRepositoryTest {
         Privilege saved = privilegeJpaRepository.save(created);
         assertThat(saved).isNotNull();
         assertThat(saved.getId()).isNotNull();
+
+        Privilege found = privilegeJpaRepository.findById(saved.getId())
+            .orElseThrow(IllegalStateException::new);
+        assertThat(found).isNotNull();
     }
 }

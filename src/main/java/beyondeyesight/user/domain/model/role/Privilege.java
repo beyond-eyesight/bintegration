@@ -21,4 +21,11 @@ public class Privilege extends BaseEntity implements GrantedAuthority {
     public static Privilege of(String name) {
         return new Privilege(name);
     }
+
+    @Override
+    public String toString() {
+        return "Privilege{" +
+            "name='" + name + '\'' +
+            '}';
+    }
 }

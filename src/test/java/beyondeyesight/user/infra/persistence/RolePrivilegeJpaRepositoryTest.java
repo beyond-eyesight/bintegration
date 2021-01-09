@@ -5,22 +5,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 import beyondeyesight.user.domain.model.role.Privilege;
 import beyondeyesight.user.domain.model.role.Role;
 import beyondeyesight.user.domain.model.role.RolePrivilege;
-import beyondeyesight.user.domain.model.role.UserRole;
-import beyondeyesight.user.domain.model.user.User;
-import beyondeyesight.user.domain.model.user.UserPrincipal;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.test.context.ActiveProfiles;
 
-
+//@ActiveProfiles("test")
 @SpringBootTest
-class UserRoleJpaRepositoryTest {
-    @Autowired
-    private UserRoleJpaRepository userRoleJpaRepository;
+public class RolePrivilegeJpaRepositoryTest {
+
 
     @Autowired
-    private UserJpaRepository userJpaRepository;
+    private RolePrivilegeJpaRepository rolePrivilegeJpaRepository;
 
     @Autowired
     private RoleJpaRepository roleJpaRepository;
@@ -28,11 +25,8 @@ class UserRoleJpaRepositoryTest {
     @Autowired
     private PrivilegeJpaRepository privilegeJpaRepository;
 
-    @Autowired
-    private RolePrivilegeJpaRepository rolePrivilegeJpaRepository;
-
     @Test
-    public void save() {
+    public void saveAnd() {
         // given
         final String ROLE_NAME = "Role";
         final String PRIVILEGE_NAME = "Privilege";
@@ -41,19 +35,17 @@ class UserRoleJpaRepositoryTest {
         Privilege privilege = Privilege.of(PRIVILEGE_NAME);
         privilegeJpaRepository.save(privilege);
         RolePrivilege rolePrivilege = RolePrivilege.of(role, privilege);
+
+        // when
         rolePrivilege = rolePrivilegeJpaRepository.save(rolePrivilege);
-        User user = userJpaRepository.save(new User("wom2277@naver.com", "geunwon", "1234"));
-        UserRole initialized = new UserRole(user, role);
-        assertThat(initialized.getId()).isNull();
+        // then
+        assertThat(rolePrivilege.getId()).isNotNull();
 
         //when
-        UserRole saved = userRoleJpaRepository.save(initialized);
+        rolePrivilege = rolePrivilegeJpaRepository.findByRole(role);
         //then
-        assertThat(saved).isNotNull();
-        assertThat(saved.getId()).isNotNull();
-
-        User found = userJpaRepository.findById(user.getId())
-            .orElseThrow(IllegalStateException::new);
-        assertThat(found).isNotNull();
+        assertThat(rolePrivilege).isNotNull();
     }
+
+    // todo: test - 롤, 프리빌리지, 롤프리빌리지 다 저장 후 롤에서 프리빌리지 카운트하는 테스트
 }

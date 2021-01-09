@@ -47,4 +47,11 @@ class Privileges {
         merged.addAll(privileges.privileges);
         return new Privileges(merged);
     }
+
+    @Override
+    public String toString() {
+        return "Privileges{" +
+            "privileges=" + privileges +
+            '}';
+    }
 }

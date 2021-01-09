@@ -26,7 +26,7 @@ public class UserService {
 
     User create(String email, String name, String password) {
         User user = new User(email, name, password);
-        return addRole(user, Role.initialize());
+        return addRole(user, Role.outsider());
     }
 
     User addRole(User user, Role role) {

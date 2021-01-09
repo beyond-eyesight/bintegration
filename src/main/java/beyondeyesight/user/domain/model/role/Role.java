@@ -26,7 +26,7 @@ public class Role extends BaseEntity {
     }
 
     // todo: default 접근
-    public static Role initialize() {
+    public static Role outsider() {
         return new Role(DEFAULT_NAME, Privileges.empty());
     }
 
@@ -50,6 +50,7 @@ public class Role extends BaseEntity {
     public String toString() {
         return "Role{" +
             "name='" + name + '\'' +
+            ", privileges=" + privileges +
             '}';
     }
 

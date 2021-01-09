@@ -28,4 +28,11 @@ public class RolePrivilege extends BaseEntity {
     public static RolePrivilege of(Role role, Privilege privilege) {
         return new RolePrivilege(role, privilege);
     }
+
+    @Override
+    public String toString() {
+        return "RolePrivilege{" +
+            ", privilege=" + privilege +
+            '}';
+    }
 }

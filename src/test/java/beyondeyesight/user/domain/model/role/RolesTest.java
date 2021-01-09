@@ -11,7 +11,7 @@ public class RolesTest {
 
     @Test
     public void merge() {
-        Role outsiderRole = Role.initialize();
+        Role outsiderRole = Role.outsider();
 
         Privilege readOnly = Privilege.of("READ_ONLY");
         Privilege writeOnly = Privilege.of("WRITE_ONLY");
@@ -55,7 +55,7 @@ public class RolesTest {
 
     @Test
     void add() {
-        Role role = Role.initialize();
+        Role role = Role.outsider();
         User user = new User("email", "name", "password");
         UserRole userRole = new UserRole(user, role);
         Roles roles = Roles.empty();
