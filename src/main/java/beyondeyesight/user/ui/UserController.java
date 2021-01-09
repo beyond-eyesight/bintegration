@@ -4,11 +4,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ChatController {
+public class UserController {
 
     @RequestMapping(value = "/")
     public String haha() {
-        return "hello";
+        return "hihi";
     }
 
 }
