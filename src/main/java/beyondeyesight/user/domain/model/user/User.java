@@ -2,6 +2,7 @@ package beyondeyesight.user.domain.model.user;
 
 import beyondeyesight.user.domain.model.BaseEntity;
 import beyondeyesight.user.domain.model.role.Roles;
+import java.util.UUID;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import lombok.AccessLevel;
@@ -28,8 +29,21 @@ public class User extends BaseEntity {
         this.roles = Roles.empty();
     }
 
+    private User(UUID id, String email, String name, String password, Roles roles) {
+        super(id);
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.roles = roles;
+    }
+
+
     public static User withoutRole(String email, String name, String password) {
-        return new User(email, name, password);
+        return new User(email, name, password, Roles.empty());
+    }
+
+    public static User withoutRole(UUID id, String email, String name, String password) {
+        return new User(id, email, name, password, Roles.empty());
     }
 
     public void addRoles(Roles roles) {
@@ -37,7 +51,7 @@ public class User extends BaseEntity {
     }
 
     public UserPrincipal toPrincipal() {
-        return new UserPrincipal(getId().toString(), password, roles.toPrivileges());
+        return new UserPrincipal(getId().toString(), this.password, this.roles.toPrivileges());
     }
 
     @Override

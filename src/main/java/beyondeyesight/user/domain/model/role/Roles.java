@@ -41,7 +41,7 @@ public class Roles {
             .map(UserRole::getRole)
             .map(Role::getPrivileges)
             .reduce(Privileges::merge)
-            .orElseThrow(IllegalStateException::new);
+            .orElse(Privileges.empty());
         return privileges.get();
     }
 

@@ -1,13 +1,11 @@
-package beyondeyesight.user.infra.service;
+package beyondeyesight.user.domain.service;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class UserDetailsLoader implements UserDetailsService {
 
     // todo: username이기에, email 파라미터가 맘에 들지 않음. loadUserByEamil같은걸 만들어서 해결할수 있을지 보기!

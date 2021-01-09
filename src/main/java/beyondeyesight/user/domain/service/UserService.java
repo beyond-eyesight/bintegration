@@ -36,5 +36,4 @@ public class UserService {
         user.addRoles(Roles.of(userRole));
         return user;
     }
-
 }

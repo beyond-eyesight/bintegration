@@ -25,11 +25,11 @@ public class Role extends BaseEntity {
         this.privileges = privileges;
     }
 
-    // todo: default 접근
     public static Role outsider() {
         return new Role(DEFAULT_NAME, Privileges.empty());
     }
 
+    // todo: factory 클래스를 만들 필요가 있을듯? Privileges들 넣어주는...
     public static Role withoutPrivilege(String name) {
         return new Role(name, Privileges.empty());
     }
