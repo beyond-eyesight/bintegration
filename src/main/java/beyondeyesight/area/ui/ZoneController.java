@@ -8,13 +8,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/zones")
 @RequiredArgsConstructor
 public class ZoneController {
 
     private final ZoneService zoneService;
 
-    @RequestMapping(value = "/zones", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public Iterable<Zone> getAll() {
         return zoneService.getAll().orElseThrow(IllegalStateException::new);
     }
 }
+
