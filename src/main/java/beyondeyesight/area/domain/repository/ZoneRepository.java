@@ -7,6 +7,6 @@ import java.util.UUID;
 public interface ZoneRepository {
     Zone save(Zone zone);
     List<Zone> saveAll(List<Zone> zones);
-    List<Zone> findAll();
+    Iterable<Zone> findAll();
     Zone findById(UUID id);
 }

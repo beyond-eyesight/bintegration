@@ -3,7 +3,6 @@ package beyondeyesight.area.domain.service;
 
 import beyondeyesight.area.domain.Zone;
 import beyondeyesight.area.domain.repository.ZoneRepository;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +15,7 @@ public class ZoneService {
     private final ZoneRepository zoneRepository;
     private final GeometryService geometryService;
 
-    public Optional<List<Zone>> getAll() {
+    public Optional<Iterable<Zone>> getAll() {
         return Optional.of(zoneRepository.findAll());
     }
 

@@ -25,8 +25,8 @@ public class ZoneElasticsearchRepositoryProxy implements ZoneRepository {
     }
 
     @Override
-    public List<Zone> findAll() {
-        return (List<Zone>) zoneElasticsearchRepository.findAll();
+    public Iterable<Zone> findAll() {
+        return zoneElasticsearchRepository.findAll();
     }
 
     @Override
