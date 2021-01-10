@@ -3,6 +3,7 @@ package beyondeyesight.area.infra.persistence;
 import beyondeyesight.area.domain.Zone;
 import beyondeyesight.area.domain.repository.ZoneRepository;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -33,5 +34,10 @@ public class ZoneElasticsearchRepositoryProxy implements ZoneRepository {
     public Zone findById(UUID id) {
         return zoneElasticsearchRepository.findById(id)
             .orElseThrow(() -> new IllegalArgumentException(String.format("다음에 해당하는 아이디를 찾을 수 없습니다: %s", id)));
+    }
+
+    @Override
+    public Optional<Zone> findByName(String name) {
+        return zoneElasticsearchRepository.findByName(name);
     }
 }

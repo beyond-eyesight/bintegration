@@ -27,4 +27,9 @@ public class ZoneService {
         return geometryService.contains(zone, point);
     }
 
+    public boolean contains(String zoneName, Point point) {
+        Zone zone = zoneRepository.findByName(zoneName).orElseThrow(IllegalArgumentException::new);
+        return contains(zone, point);
+    }
+
 }

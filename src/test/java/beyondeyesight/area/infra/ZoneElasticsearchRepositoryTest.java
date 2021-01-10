@@ -45,6 +45,13 @@ public class ZoneElasticsearchRepositoryTest {
         assertThat(saved).isEqualTo(zones);
     }
 
+    @Test
+    public void findByName() {
+        Zone zone = zoneElasticsearchRepository.findByName("Wangsimni")
+            .orElseThrow(IllegalArgumentException::new);
+        assertThat(zone).isNotNull();
+    }
+
     @ParameterizedTest
     @MethodSource("provideZoneIds")
     public void findById(UUID id) {
