@@ -12,6 +12,7 @@ import org.springframework.data.elasticsearch.core.geo.GeoJsonPolygon;
 import org.springframework.data.geo.Point;
 import org.springframework.stereotype.Component;
 
+// todo: 패키지를 옮기는게 좋을듯. 임시로 listner 패키지에.
 @Component
 @RequiredArgsConstructor
 public class ContextRefreshedEventListener implements ApplicationListener<ContextRefreshedEvent> {
