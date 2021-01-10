@@ -7,6 +7,8 @@ import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.core.geo.GeoJson;
 
 @Getter
@@ -14,9 +16,9 @@ import org.springframework.data.elasticsearch.core.geo.GeoJson;
 @Document(indexName="zones")
 public class Zone {
 
-    //todo: UUID로 바꾸기
     @Id
     private final UUID id;
+    @Field(type = FieldType.Text)
     private final String name;
     private final GeoJson<? extends Iterable<?>> shape;
 
@@ -29,7 +31,8 @@ public class Zone {
     @Override
     public String toString() {
         return "Zone{" +
-            "id='" + id + '\'' +
+            "id=" + id +
+            ", name='" + name + '\'' +
             ", shape=" + shape +
             '}';
     }
@@ -44,11 +47,12 @@ public class Zone {
         }
         Zone zone = (Zone) o;
         return Objects.equals(id, zone.id) &&
+            Objects.equals(name, zone.name) &&
             Objects.equals(shape, zone.shape);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, shape);
+        return Objects.hash(id, name, shape);
     }
 }

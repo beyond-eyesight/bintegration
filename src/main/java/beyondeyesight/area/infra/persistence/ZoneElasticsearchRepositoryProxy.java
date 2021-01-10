@@ -20,6 +20,11 @@ public class ZoneElasticsearchRepositoryProxy implements ZoneRepository {
     }
 
     @Override
+    public List<Zone> saveAll(List<Zone> zones) {
+        return (List<Zone>) zoneElasticsearchRepository.saveAll(zones);
+    }
+
+    @Override
     public List<Zone> findAll() {
         return (List<Zone>) zoneElasticsearchRepository.findAll();
     }
