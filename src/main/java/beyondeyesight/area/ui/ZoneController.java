@@ -23,7 +23,7 @@ public class ZoneController {
     }
 
     // todo: restful 찾아보기
-    @GetMapping(value = "/contains")
+    @GetMapping(value = "/validate")
     public boolean contains(@RequestParam(value = "name") String zoneName,
         @RequestParam(value = "lon") String lon, @RequestParam(value = "lat") String lat) {
         return zoneService.contains(zoneName, PointDto.of(lon, lat).toPoint());

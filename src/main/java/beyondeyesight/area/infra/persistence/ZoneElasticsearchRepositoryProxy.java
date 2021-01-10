@@ -8,7 +8,6 @@ import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-// todo: impl 대신 Proxy라고 해봤다. 확인!
 @RequiredArgsConstructor
 @Repository
 public class ZoneElasticsearchRepositoryProxy implements ZoneRepository {
