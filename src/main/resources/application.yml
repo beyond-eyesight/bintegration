@@ -15,8 +15,15 @@ spring:
 
 logging:
   level:
+    root: trace
     org:
       hibernate:
         type:
           descriptor:
             sql: trace
+
+jwt:
+  secret: bppD8zLvoTsJFePsx6niIWcdOa0+2DY+j+Hxn54yEH2Kaa3JhsiGLJtaISsEmoaV0hgxKdQf/ON0GeyDBAS1Wi69PmwuMcersAAusxgPgmB6DTHL8T8F1qA8Y8S2C3fqOP42Gh/zvFnREKbNh73IzVyB7pwUhnyWggFYa2P72g4USHal8X1MrrMV84k11NlL7fnHHuMldyfXJMrGgN1M5oGpjQniRffwVYje9Q==
+  issuer: beyondeyesight
+  type: JWT
+  audience: User
