@@ -1,4 +1,4 @@
-package beyondeyesight.area.listener;
+package beyondeyesight.area.infra.adapter;
 
 import beyondeyesight.area.domain.Zone;
 import beyondeyesight.area.domain.repository.ZoneRepository;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 // todo: 패키지를 옮기는게 좋을듯. 임시로 listner 패키지에.
 @Component
 @RequiredArgsConstructor
-public class ContextRefreshedEventListener implements ApplicationListener<ContextRefreshedEvent> {
+public class ContextRefreshedEventHandler implements ApplicationListener<ContextRefreshedEvent> {
 
     private final static UUID WANGSIMNI_ID = UUID
         .fromString("110841e3-e6fb-4191-8fd8-5674a5107c33");
