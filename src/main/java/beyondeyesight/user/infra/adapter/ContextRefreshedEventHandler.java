@@ -18,8 +18,5 @@ public class ContextRefreshedEventHandler implements ApplicationListener<Context
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-//        User user = User
-//            .withoutRole("wom2277@naver.com", "geunwon", passwordEncoder.encode("4568001s*at"));
-//        userRepository.save(user);
     }
 }

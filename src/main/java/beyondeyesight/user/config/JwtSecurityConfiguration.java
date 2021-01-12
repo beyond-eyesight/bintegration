@@ -17,16 +17,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class JwtSecurityConfiguration extends WebSecurityConfigurerAdapter {
-
-    @Value("${jwt.secret}")
-    private String jwtSecret;
-    @Value("${jwt.issuer}")
-    private String jwtIssuer;
-    @Value("${jwt.type}")
-    private String jwtType;
-    @Value("${jwt.audience}")
-    private String jwtAudience;
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
