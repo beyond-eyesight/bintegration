@@ -36,4 +36,8 @@ public class UserService {
         user.addRoles(Roles.of(userRole));
         return user;
     }
+
+    public User findBySignature(String signature) {
+        return userRepository.findByEmail(signature);
+    }
 }

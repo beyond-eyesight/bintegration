@@ -15,7 +15,6 @@ spring:
 
 logging:
   level:
-    root: trace
     org:
       hibernate:
         type:
