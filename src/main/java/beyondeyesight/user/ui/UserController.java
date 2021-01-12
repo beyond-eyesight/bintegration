@@ -21,12 +21,6 @@ public class UserController {
     private final SecurityService securityService;
     private final UserService userService;
 
-    @RequestMapping(value = "/")
-    public String haha() {
-        return "hihi";
-    }
-
-    // todo: 다른 장소에서 게터를 여러번 써도 되려나..?
     @PostMapping(value = "/signIn")
     public ResponseEntity<SignInResponse> signIn(@RequestBody final SignInRequest signInRequest) {
         String token = securityService
