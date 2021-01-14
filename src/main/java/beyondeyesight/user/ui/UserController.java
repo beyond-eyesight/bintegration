@@ -1,5 +1,6 @@
 package beyondeyesight.user.ui;
 
+import beyondeyesight.user.config.EndpointConfig;
 import beyondeyesight.user.domain.model.dto.SignInRequest;
 import beyondeyesight.user.domain.model.dto.SignInResponse;
 import beyondeyesight.user.domain.model.user.User;
@@ -11,17 +12,15 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
 public class UserController {
-
     private final SecurityService securityService;
     private final UserService userService;
 
-    @PostMapping(value = "/signIn")
+    @PostMapping(value = EndpointConfig.SIGN_IN)
     public ResponseEntity<SignInResponse> signIn(@RequestBody final SignInRequest signInRequest) {
         String token = securityService
             .authenticate(signInRequest.getSignature(), signInRequest.getPassword());
