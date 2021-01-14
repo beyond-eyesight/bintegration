@@ -3,7 +3,7 @@ package beyondeyesight.user.infra.persistence;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import beyondeyesight.user.domain.model.role.Role;
-import beyondeyesight.user.domain.model.role.Roles;
+import beyondeyesight.user.domain.model.role.RolesOfUser;
 import beyondeyesight.user.domain.model.role.UserRole;
 import beyondeyesight.user.domain.model.user.User;
 import org.junit.jupiter.api.Test;
@@ -40,7 +40,7 @@ public class UserJpaRepositoryTest {
         User user = userJpaRepository.save(User.withoutRole("wom2277@naver.com", "geunwon", "1234"));
 
         UserRole userRole = userRoleJpaRepository.save(new UserRole(user, role));
-        user.addRoles(Roles.of(userRole));
+        user.addRoles(RolesOfUser.of(userRole));
 
         User foundByEmail = userJpaRepository.findByEmail("wom2277@naver.com");
         System.out.println(foundByEmail);

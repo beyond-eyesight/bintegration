@@ -1,6 +1,5 @@
 package beyondeyesight.user.infra.adapter;
 
-import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationListener;

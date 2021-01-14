@@ -1,7 +1,7 @@
 package beyondeyesight.user.domain.model.user;
 
 import beyondeyesight.user.domain.model.BaseEntity;
-import beyondeyesight.user.domain.model.role.Roles;
+import beyondeyesight.user.domain.model.role.RolesOfUser;
 import java.util.Collection;
 import java.util.UUID;
 import javax.persistence.Column;
@@ -29,16 +29,16 @@ public class User extends BaseEntity implements UserDetails {
 
     @Embedded
     @NonNull
-    private Roles roles;
+    private RolesOfUser roles;
 
     private User(String email, String name, String password) {
         this.email = email;
         this.name = name;
         this.password = password;
-        this.roles = Roles.empty();
+        this.roles = RolesOfUser.empty();
     }
 
-    private User(UUID id, String email, String name, String password, Roles roles) {
+    private User(UUID id, String email, String name, String password, RolesOfUser roles) {
         super(id);
         this.email = email;
         this.name = name;
@@ -47,13 +47,12 @@ public class User extends BaseEntity implements UserDetails {
     }
 
 
-
     public static User withoutRole(String email, String name, String password) {
-        return new User(email, name, password, Roles.empty());
+        return new User(email, name, password, RolesOfUser.empty());
     }
 
     public static User withoutRole(UUID id, String email, String name, String password) {
-        return new User(id, email, name, password, Roles.empty());
+        return new User(id, email, name, password, RolesOfUser.empty());
     }
 
     @Override
@@ -64,6 +63,10 @@ public class User extends BaseEntity implements UserDetails {
     @Override
     public String getUsername() {
         return getId().toString();
+    }
+
+    public void addRoles(RolesOfUser roles) {
+        this.roles = this.roles.merge(roles);
     }
 
     @Override
@@ -86,10 +89,6 @@ public class User extends BaseEntity implements UserDetails {
         return true;
     }
 
-    public void addRoles(Roles roles) {
-        this.roles = this.roles.merge(roles);
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -99,4 +98,5 @@ public class User extends BaseEntity implements UserDetails {
             ", roles=" + roles +
             '}';
     }
+
 }

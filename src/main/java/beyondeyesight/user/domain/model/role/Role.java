@@ -2,6 +2,7 @@ package beyondeyesight.user.domain.model.role;
 
 import beyondeyesight.user.domain.model.BaseEntity;
 import java.util.Objects;
+import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import lombok.NonNull;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Role extends BaseEntity {
+
     private static final String DEFAULT_NAME = "Outsider";
 
     @Column(nullable = false, unique = true)
@@ -19,21 +21,31 @@ public class Role extends BaseEntity {
 
     @Embedded
     @NonNull
-    private Privileges privileges;
+    private PrivilegesOfRole privileges;
 
-    private Role(String name, Privileges privileges) {
+    private Role(UUID id, String name, PrivilegesOfRole privileges) {
+        super(id);
+        this.name = name;
+        this.privileges = privileges;
+    }
+
+    private Role(String name, PrivilegesOfRole privileges) {
         super();
         this.name = name;
         this.privileges = privileges;
     }
 
     public static Role outsider() {
-        return new Role(DEFAULT_NAME, Privileges.empty());
+        return new Role(DEFAULT_NAME, PrivilegesOfRole.empty());
     }
 
     // todo: factory 클래스를 만들 필요가 있을듯? Privileges들 넣어주는...
     public static Role withoutPrivilege(String name) {
-        return new Role(name, Privileges.empty());
+        return new Role(name, PrivilegesOfRole.empty());
+    }
+
+    static Role withoutPrivilege(UUID id, String name) {
+        return new Role(id, name, PrivilegesOfRole.empty());
     }
 
     public void add(RolePrivilege privilege) {
@@ -44,7 +56,7 @@ public class Role extends BaseEntity {
         return this.privileges.count();
     }
 
-    Privileges getPrivileges() {
+    PrivilegesOfRole getPrivileges() {
         return this.privileges;
     }
 

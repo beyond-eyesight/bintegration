@@ -1,6 +1,5 @@
 package beyondeyesight.user.domain.service;
 
-import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
