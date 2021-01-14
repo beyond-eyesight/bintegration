@@ -2,6 +2,7 @@ package beyondeyesight.user.domain.model.user;
 
 import beyondeyesight.user.domain.model.BaseEntity;
 import beyondeyesight.user.domain.model.role.Roles;
+import java.util.Collection;
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -11,12 +12,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class User extends BaseEntity {
+public class User extends BaseEntity implements UserDetails {
     @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
@@ -44,6 +47,7 @@ public class User extends BaseEntity {
     }
 
 
+
     public static User withoutRole(String email, String name, String password) {
         return new User(email, name, password, Roles.empty());
     }
@@ -52,12 +56,38 @@ public class User extends BaseEntity {
         return new User(id, email, name, password, Roles.empty());
     }
 
-    public void addRoles(Roles roles) {
-        this.roles = this.roles.merge(roles);
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.roles.toPrivileges();
     }
 
-    public UserPrincipal toPrincipal() {
-        return new UserPrincipal(getId().toString(), this.password, this.roles.toPrivileges());
+    @Override
+    public String getUsername() {
+        return getId().toString();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public void addRoles(Roles roles) {
+        this.roles = this.roles.merge(roles);
     }
 
     @Override
