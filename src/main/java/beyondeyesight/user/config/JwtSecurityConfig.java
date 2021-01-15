@@ -1,6 +1,7 @@
 package beyondeyesight.user.config;
 
 import beyondeyesight.user.infra.security.JwtAuthenticationFilter;
+import beyondeyesight.user.ui.UserController;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +24,7 @@ public class JwtSecurityConfig extends WebSecurityConfigurerAdapter {
                 new JwtAuthenticationFilter(authenticationManager()))
             .authorizeRequests(
                 authorizeRequests -> authorizeRequests
-                    .antMatchers(EndpointConfig.SIGN_IN)
+                    .antMatchers(UserController.SIGN_IN_ENDPOINT)
                     .permitAll()
                     .anyRequest()
                     .authenticated())
