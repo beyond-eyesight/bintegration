@@ -1,8 +1,8 @@
 package beyondeyesight.user.domain.service;
 
-import beyondeyesight.user.domain.model.role.Role;
-import beyondeyesight.user.domain.model.role.RolesOfUser;
-import beyondeyesight.user.domain.model.role.UserRole;
+import beyondeyesight.user.domain.model.user.role.Role;
+import beyondeyesight.user.domain.model.user.role.RolesOfUser;
+import beyondeyesight.user.domain.model.user.role.UserRole;
 import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.repository.RoleRepository;
 import beyondeyesight.user.domain.repository.UserRepository;

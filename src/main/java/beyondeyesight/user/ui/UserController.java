@@ -1,8 +1,8 @@
 package beyondeyesight.user.ui;
 
 import beyondeyesight.user.config.EndpointConfig;
-import beyondeyesight.user.domain.model.dto.SignInRequest;
-import beyondeyesight.user.domain.model.dto.SignInResponse;
+import beyondeyesight.user.domain.model.user.dto.SignInRequest;
+import beyondeyesight.user.domain.model.user.dto.SignInResponse;
 import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.service.SecurityService;
 import beyondeyesight.user.domain.service.UserService;

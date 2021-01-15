@@ -1,7 +1,7 @@
 package beyondeyesight.user.domain.model.user;
 
 import beyondeyesight.user.domain.model.BaseEntity;
-import beyondeyesight.user.domain.model.role.RolesOfUser;
+import beyondeyesight.user.domain.model.user.role.RolesOfUser;
 import java.util.Collection;
 import java.util.UUID;
 import javax.persistence.Column;

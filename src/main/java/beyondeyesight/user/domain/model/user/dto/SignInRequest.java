@@ -1,4 +1,4 @@
-package beyondeyesight.user.domain.model.dto;
+package beyondeyesight.user.domain.model.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

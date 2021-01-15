@@ -2,9 +2,9 @@ package beyondeyesight.user.infra.persistence;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import beyondeyesight.user.domain.model.role.Role;
-import beyondeyesight.user.domain.model.role.RolesOfUser;
-import beyondeyesight.user.domain.model.role.UserRole;
+import beyondeyesight.user.domain.model.user.role.Role;
+import beyondeyesight.user.domain.model.user.role.RolesOfUser;
+import beyondeyesight.user.domain.model.user.role.UserRole;
 import beyondeyesight.user.domain.model.user.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

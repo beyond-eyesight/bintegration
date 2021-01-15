@@ -1,4 +1,4 @@
-package beyondeyesight.user.domain.model.role;
+package beyondeyesight.user.domain.model.user.role;
 
 import beyondeyesight.user.domain.model.BaseEntity;
 import beyondeyesight.user.domain.model.user.User;

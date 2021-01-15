@@ -1,4 +1,4 @@
-package beyondeyesight.user.domain.model.role;
+package beyondeyesight.user.domain.model.user.role;
 
 import java.util.ArrayList;
 import java.util.Collections;

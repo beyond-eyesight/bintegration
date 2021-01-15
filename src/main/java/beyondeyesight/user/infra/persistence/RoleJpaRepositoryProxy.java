@@ -1,6 +1,6 @@
 package beyondeyesight.user.infra.persistence;
 
-import beyondeyesight.user.domain.model.role.Role;
+import beyondeyesight.user.domain.model.user.role.Role;
 import beyondeyesight.user.domain.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
