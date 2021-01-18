@@ -15,7 +15,15 @@ management:
       exposure:
         include: "*"
 
-zuul:
-  prefix: /api
-  routes:
-    chatservice: /chatservice/**
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: after_route
+#          uri: https://example.org
+#          predicates:
+#            - name: Cookie
+#              args:
+#                name: cookie
+#                regexp: cookievalue
+
