@@ -37,4 +37,4 @@ out/
 .vscode/
 
 ### GUI ###
- elasticsearch-gui
+elasticsearch-gui
