@@ -2,9 +2,9 @@
 
 ## 1. 소개
 
-access 서비스는 사용자가 beyond-eyesight 내 어플리케이션들을 이용할 수 있도록 하는 접근과 관련된 로직을 담당합니다.
+access 서비스는 사용자가 beyond-eyesight 내 어플리케이션들을 이용할 수 있도록 하는 보안 및 권한 로직을 담당합니다.
 
-[**용어정리**](./docs/domain/model.md)
+[**용어 정리**](./docs/domain/model.md)
 
 ## 2. 주요 기능
 
