@@ -14,5 +14,4 @@ public class FellowshipApplication {
     public static void main(String[] args) {
         SpringApplication.run(FellowshipApplication.class, args);
     }
-
 }
