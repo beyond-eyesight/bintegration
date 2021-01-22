@@ -2,7 +2,11 @@
 
 ## 사용자(User)
 
-사용자는 beyond-eyesight 네트워크에 접근하려는 모든 주체를 뜻합니다. 즉, 사용자는 beyond-eyesight 내 백엔드 서비스, 프론트(모바일) 서비스 뿐 아니라 beyond-eyesight 외부에서 접근하는 제 3의 주체도 포함합니다.
+사용자는 beyond-eyesight 네트워크에 자원을 소유하고 있는 주체를 뜻합니다. 가령 username/password로 access 서비스에 스스로를 등록한 사람들을 뜻합니다.
+
+## 클라이언트(Client)
+
+클라이언트는 beyond-eyesight 네트워크에 접근하려는 모든 주체 중 **사용자를 제외한** 주체들을 뜻합니다. 즉, 클라이언트는 beyond-eyesight 내 백엔드 서비스, 프론트(모바일) 서비스 뿐 아니라 beyond-eyesight 외부에서 접근하는 제 3의 주체도 포함합니다.
 
 ## 역할(Role)
 
@@ -19,6 +23,4 @@
 ## 권한(Privilege)
 
 권한은 특정 업무를 수행할 수 있는 권리를 뜻합니다.
-
-
 
