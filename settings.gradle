@@ -1,1 +1,3 @@
-rootProject.name = 'apigateway'
+rootProject.name = 'bintegration'
+
+include 'fellowship', 'area'

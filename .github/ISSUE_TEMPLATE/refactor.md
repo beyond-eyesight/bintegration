@@ -2,7 +2,7 @@
 name: Refactor
 about: Modify codes or the structure
 title: "[REFAC]"
-labels: ''
+labels: refactor
 assignees: ''
 
 ---
