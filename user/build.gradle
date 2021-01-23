@@ -6,7 +6,9 @@ plugins {
 
 group = 'beyondeyesight'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '8'
+sourceCompatibility = '11'
+
+task prepareKotlinBuildScriptModel {}
 
 repositories {
     mavenCentral()
