@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+  jpa:
+    properties:
+      hibernate:
+        use_sql_comments: true
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+jwt:
+  secret: bppD8zLvoTsJFePsx6niIWcdOa0+2DY+j+Hxn54yEH2Kaa3JhsiGLJtaISsEmoaV0hgxKdQf/ON0GeyDBAS1Wi69PmwuMcersAAusxgPgmB6DTHL8T8F1qA8Y8S2C3fqOP42Gh/zvFnREKbNh73IzVyB7pwUhnyWggFYa2P72g4USHal8X1MrrMV84k11NlL7fnHHuMldyfXJMrGgN1M5oGpjQniRffwVYje9Q==
+  issuer: beyondeyesight
+  type: JWT
+  audience: User
