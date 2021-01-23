@@ -9,4 +9,3 @@
 ![](./docs/images/bintegration.png)
 
 *bintegration*은 다수의 서비스 묶음으로 구성됩니다. 핵심 서비스로는 Access, Fellowship, Area가 있습니다.
-
