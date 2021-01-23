@@ -1,4 +1,4 @@
-fellowship/HELP.md
+../fellowship/HELP.md
 .gradle
 build/
 !fellowship/gradle/wrapper/gradle-wrapper.jar
