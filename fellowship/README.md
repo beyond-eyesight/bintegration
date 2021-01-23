@@ -3,7 +3,7 @@
 
 fellowship 서비스는 친목과 관련된 로직을 수행합니다.
 
-[**용어 정리**](./docs/domain/model.md)
+[**용어 정리**](docs/domain/model.md)
 
 ## 2. 주요 기능
 
