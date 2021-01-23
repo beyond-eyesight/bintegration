@@ -1,17 +1,11 @@
-# access
+# bintegration
 
-## 1. 소개
+## 개요
 
-access 서비스는 사용자가 beyond-eyesight 내 어플리케이션들을 이용할 수 있도록 하는 보안 및 권한 로직을 담당합니다.
+*bintegration*은 사람들이 이전보다 쉽게 교류하는 것을 목표로 하는 프로젝트입니다.
 
-[**용어 정리**](./docs/domain/model.md)
+## 정적 구조
 
-## 2. 주요 기능
+![](./docs/images/bintegration.png)
 
-1. 인증
-2. 인가
-
-## 3. 주요 기술
-
-java, spring-boot, jpa, mysql, spring-security, [spring-projects-experimental/spring-authorization-server](https://github.com/spring-projects-experimental/spring-authorization-server)
-
+*bintegration*은 다수의 서비스 묶음으로 구성됩니다. 핵심 서비스로는 Access, Fellowship, Area가 있습니다.

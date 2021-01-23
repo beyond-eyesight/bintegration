@@ -1,1 +1,3 @@
-rootProject.name = 'user'
+rootProject.name = 'bintegration'
+
+include 'fellowship', 'area'
