@@ -1,0 +1,19 @@
+server:
+  port: 8888
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/beyond-eyesight/config
+#          todo: 'src/main/resources/config'를 따로 뺄 수 있는지 확인.
+          searchPaths: src/main/resources/config/chatservice
+          username: p-vibe
+          password: thisispassword
+      label: develop
+
+
+
+
+
+
