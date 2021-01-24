@@ -11,9 +11,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class ContextRefreshedEventHandler implements ApplicationListener<ContextRefreshedEvent> {
 
-    private final UserRepository userRepository;
-
-    private final PasswordEncoder passwordEncoder;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {

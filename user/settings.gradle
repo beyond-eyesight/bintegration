@@ -1,0 +1,5 @@
+rootProject.name = 'user'
+
+file('modules').listFiles().each { File moduleBuild ->
+    includeBuild moduleBuild
+}
