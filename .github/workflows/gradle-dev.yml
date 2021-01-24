@@ -8,8 +8,19 @@ on:
     branches: [ develop ]
   pull_request:
     branches: [ develop ]
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'service name to deploy'
+        required: true
+        default: 'bintegration'
 
 jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Hello ${{ github.event.inputs.name }}!"
   build:
     runs-on: ubuntu-latest
     steps:

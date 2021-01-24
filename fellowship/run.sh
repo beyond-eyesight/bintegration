@@ -11,6 +11,6 @@ while ! `nc -z cassandra $CASSANDRA_PORT`; do sleep 3; done
 echo ">>>>>>>>>>>> Database Server has started"
 
 echo "********************************************************"
-echo ">>>>>>>>>>>> Starting chat-service "
+echo ">>>>>>>>>>>> Starting fellowship-service "
 echo "********************************************************"
-java -jar /usr/local/chat-service/chat-0.0.1.jar
+java -jar /usr/local/fellowship-service/fellowship-0.0.1.jar
