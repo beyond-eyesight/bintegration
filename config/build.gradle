@@ -17,7 +17,7 @@ task prepareKotlinBuildScriptModel {
 }
 
 ext {
-    set('springCloudVersion', "Hoxton.SR8")
+    set('springCloudVersion', "2020.0.0-RC1")
 }
 
 dependencies {
