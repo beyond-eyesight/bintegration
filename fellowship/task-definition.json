@@ -2,8 +2,8 @@
   "inferenceAccelerators": [],
   "containerDefinitions": [
     {
-      "name": "chat",
-      "image": "chat:latest",
+      "name": "fellowship",
+      "image": "fellowship:latest",
       "resourceRequirements": null,
       "essential": true,
       "portMappings": [
@@ -17,7 +17,7 @@
   ],
   "memory": "512",
   "cpu": "256",
-  "family": "chat-family",
+  "family": "fellowship-family",
   "volumes": [],
   "networkMode": "awsvpc"
 }
