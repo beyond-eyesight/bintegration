@@ -46,7 +46,7 @@ jobs:
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: task-definition.json
+          task-definition: ${{ github.event.inputs.name }}/task-definition.json
           container-name: ${{ github.event.inputs.name }}
           image: beyondeyesight/${{ github.event.inputs.name }}@${{ steps.docker_build.outputs.digest }}
       - name: Deploy Amazon ECS task definition
