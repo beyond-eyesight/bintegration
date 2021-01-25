@@ -25,8 +25,8 @@ services:
       - CASSANDRA_DC=DC1
   #    datacenter 이름이 기존과 다르다면 아래 설정 필요
   #    command: -Dcassandra.ignore_dc=true
-  chat:
-    image: beyondeyesight/chat:0.0.1
+  fellowship:
+    image: beyondeyesight/fellowship:latest
     ports:
       - "8080:8080"
     depends_on:
