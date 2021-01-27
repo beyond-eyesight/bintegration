@@ -30,6 +30,15 @@ public class TestCassandraConfig extends AbstractCassandraConfiguration {
     @Value("${spring.data.cassandra.local-datacenter}")
     private String localDatacenter;
 
+//    @Override
+//    @Nonnull
+//    protected CqlSession getRequiredSession() {
+//        // TODO Auto-generated method stub
+//        DriverConfigLoader loader = DriverConfigLoader.fromClasspath("application.conf");
+//
+//        return CqlSession.builder().withConfigLoader(loader).build();
+//    }
+
     @Override
     @Bean
     @Nonnull
