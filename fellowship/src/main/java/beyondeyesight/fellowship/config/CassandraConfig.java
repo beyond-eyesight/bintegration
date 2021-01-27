@@ -1,18 +1,21 @@
 package beyondeyesight.fellowship.config;
 
+import com.datastax.oss.driver.api.core.CqlSession;
+import com.datastax.oss.driver.api.core.config.DriverConfigLoader;
+import com.datastax.oss.driver.api.core.cql.ResultSet;
+import com.datastax.oss.driver.api.core.cql.Row;
+import com.datastax.oss.driver.internal.core.config.typesafe.DefaultDriverConfigLoader;
+import java.util.Arrays;
 import java.util.Collections;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.cassandra.config.AbstractCassandraConfiguration;
 import org.springframework.data.cassandra.config.CqlSessionFactoryBean;
 import org.springframework.data.cassandra.config.SchemaAction;
 import org.springframework.data.cassandra.core.cql.keyspace.CreateKeyspaceSpecification;
-import org.springframework.data.cassandra.core.cql.session.init.KeyspacePopulator;
-import org.springframework.data.cassandra.core.cql.session.init.ResourceKeyspacePopulator;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 
 @Configuration
@@ -41,6 +44,7 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
         cqlSessionFactoryBean.setKeyspaceName(keyspaceName);
         cqlSessionFactoryBean.setLocalDatacenter(localDatacenter);
 
+
         //todo: 걍 CreateKeyspaceSpecification.createKeyspace 만 해도 될듯?
         cqlSessionFactoryBean.setKeyspaceCreations(
             Collections.singletonList(
@@ -63,7 +67,7 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
     public SchemaAction getSchemaAction() {
         //todo: 운영시 스키마 정책 확인
         //todo: 왜 RECREATE일 때 터지는지 확인
-        return SchemaAction.CREATE_IF_NOT_EXISTS;
+        return SchemaAction.NONE;
     }
 
     @Override
@@ -72,9 +76,36 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
         return new String[]{"beyondeyesight.fellowship.domain"};
     }
 
-    @Nullable
-    @Override
-    protected KeyspacePopulator keyspacePopulator() {
-        return new ResourceKeyspacePopulator(new ClassPathResource("db/cql/db-data.cql"));
-    }
+//    @Override
+//    protected Resource getDriverConfigurationResource() {
+//        return super.getDriverConfigurationResource();
+//    }
+
+//    @Nonnull
+//    @Override
+//    protected CqlSession getRequiredSession() {
+//        DriverConfigLoader loader = DriverConfigLoader.fromClasspath("application.conf");
+//        try (CqlSession session = CqlSession.builder()
+//            .withConfigLoader(loader)
+//            .build()) {
+//
+//            System.out.println("Session");
+//            System.out.println(session);
+//            ResultSet rs = session.execute("select * from testkeyspace.chat_room");
+//            Row row = rs.one();
+//            System.out.println(row.getString("name"));
+//            return session;
+//        } catch (Exception e) {
+//            System.out.println("error");
+//            System.out.println();
+//            System.out.println(Arrays.toString(e.getStackTrace()));
+//            return null;
+//        }
+//    }
+
+    //    @Nullable
+//    @Override
+//    protected KeyspacePopulator keyspacePopulator() {
+//        return new ResourceKeyspacePopulator(new ClassPathResource("db/cql/db-data.cql"));
+//    }
 }

@@ -1,12 +1,12 @@
 spring:
   redis:
-    host: redis
+    host: bintegration-redis.15uxi6.0001.apn2.cache.amazonaws.com
     port: 6379
 
   data:
     cassandra:
-      contact-points: cassandra
-      port: 9042
-      keyspace-name: testKeySpace
-      local-datacenter: DC1
-
+      contact-points: cassandra.ap-northeast-2.amazonaws.com
+      port: 9142
+      keyspace-name: testkeyspace
+      local-datacenter: ap-northeast-2
+      ssl: true
