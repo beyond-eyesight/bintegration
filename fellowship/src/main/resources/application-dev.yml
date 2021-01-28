@@ -1,6 +1,6 @@
 spring:
   redis:
-    host: bintegration-redis.15uxi6.0001.apn2.cache.amazonaws.com
+    host: redis
     port: 6379
 
   data:
@@ -10,3 +10,5 @@ spring:
       keyspace-name: testkeyspace
       local-datacenter: ap-northeast-2
       ssl: true
+      username: geunwonlim-at-174579883227
+      password: pgDHHX7h+cYB/MFR2zZehK9WeYLxNyQU8DeytO0YshI=
