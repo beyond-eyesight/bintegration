@@ -8,7 +8,6 @@ import static org.mockito.Mockito.when;
 import beyondeyesight.fellowship.config.EmbeddedRedisConfig;
 import beyondeyesight.fellowship.config.TestRedisConfig;
 import beyondeyesight.fellowship.domain.model.chat.ChatMessage;
-import beyondeyesight.fellowship.domain.model.chat.Sender;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.UUID;
@@ -42,8 +41,8 @@ public class RedisTemplateTest {
     public void pubsub() throws InterruptedException, JsonProcessingException {
         UUID id = UUID.randomUUID();
         UUID chatRoomId = UUID.randomUUID();
-        Sender sender = Sender.of(UUID.randomUUID());
-        ChatMessage chatMessage = ChatMessage.of(id, chatRoomId, sender, "testBody");
+        UUID senderId = UUID.randomUUID();
+        ChatMessage chatMessage = ChatMessage.of(id, chatRoomId, senderId, "testBody");
         when(objectMapper.readValue(anyString(), eq(ChatMessage.class))).thenReturn(chatMessage);
         redisTemplate.convertAndSend(TestRedisConfig.CHANNEL_NAME, chatMessage);
         Thread.sleep(50);

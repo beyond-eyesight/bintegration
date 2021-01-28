@@ -10,5 +10,8 @@ spring:
       keyspace-name: testkeyspace
       local-datacenter: ap-northeast-2
       ssl: true
+      # todo: config 서버로 옮길 때 새로 생성하기
       username: geunwonlim-at-174579883227
       password: pgDHHX7h+cYB/MFR2zZehK9WeYLxNyQU8DeytO0YshI=
+      request:
+        consistency: local_quorum
