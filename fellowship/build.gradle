@@ -69,7 +69,6 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-
 docker {
     name "${project.group}/${project.name}:${project.version}"
     //todo: 하드 코딩을 지우고 싶다.

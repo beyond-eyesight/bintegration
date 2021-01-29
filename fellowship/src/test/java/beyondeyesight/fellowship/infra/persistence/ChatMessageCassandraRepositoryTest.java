@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import beyondeyesight.fellowship.config.TestCassandraConfig;
 import beyondeyesight.fellowship.domain.model.chat.ChatMessage;
-import beyondeyesight.fellowship.domain.model.chat.Sender;
 import java.util.UUID;
 import org.cassandraunit.spring.CassandraUnitDependencyInjectionTestExecutionListener;
 import org.cassandraunit.spring.EmbeddedCassandra;
@@ -46,8 +45,8 @@ public class ChatMessageCassandraRepositoryTest {
     public void save() {
         UUID id = UUID.randomUUID();
         UUID chatRoomId = UUID.randomUUID();
-        Sender sender = Sender.of(UUID.randomUUID());
-        ChatMessage chatMessage = ChatMessage.of(id, chatRoomId, sender, "chatBody");
+        UUID senderId = UUID.randomUUID();
+        ChatMessage chatMessage = ChatMessage.of(id, chatRoomId, senderId, "chatBody");
 
         chatMessage = chatMessageCassandraRepository.save(chatMessage);
         assertThat(chatMessage).isNotNull();

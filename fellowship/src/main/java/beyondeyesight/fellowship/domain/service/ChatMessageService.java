@@ -12,12 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class ChatMessageService {
     private final ChatMessageRepository chatMessageRepository;
-    private final MessagePublisher messagePublisher;
+//    private final MessagePublisher messagePublisher;
 
     //todo: test
     @Transactional
     public void send(ChatMessage chatMessage) {
         chatMessage = chatMessageRepository.save(chatMessage);
-        messagePublisher.publish(chatMessage);
+//        messagePublisher.publish(chatMessage);
     }
 }

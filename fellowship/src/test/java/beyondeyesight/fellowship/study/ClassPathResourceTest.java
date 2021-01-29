@@ -13,5 +13,4 @@ public class ClassPathResourceTest {
         ClassPathResource classPathResource = new ClassPathResource("db/cql/db-data.cql");
         assertTrue(classPathResource.exists());
     }
-
 }

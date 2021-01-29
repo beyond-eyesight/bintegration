@@ -17,6 +17,7 @@ public class ChatController {
     private final ChatMessageService chatMessageService;
     private final ChatRoomService chatRoomService;
 
+    // todo dto로 바꾸기
     @MessageMapping("/chat/message")
     public void send(ChatMessage chatMessage) {
         //todo: implement
