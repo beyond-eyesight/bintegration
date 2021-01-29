@@ -29,10 +29,3 @@ logging:
             core:
               cql:
                 CqlTemplate: DEBUG
-
-javax:
-  net:
-    ssl:
-      trustStore=/Users/junksound/beyond-eyesight/bintegration/fellowship/src/main/resources/cassandra_truststore:
-        jks: ./src/main/resources/cassandra_truststore.jks
-        trustStorePassword: beyondeyesight
