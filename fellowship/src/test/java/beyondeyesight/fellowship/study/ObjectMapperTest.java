@@ -7,7 +7,7 @@ import beyondeyesight.fellowship.domain.model.chat.ChatMessage;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.UUID;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ObjectMapperTest {
 
@@ -17,7 +17,7 @@ public class ObjectMapperTest {
         UUID testId = UUID.randomUUID();
         String publishedMessage = "{\"id\":" + "\"" + testId + "\","
             + "\"chatRoomId\":" + "\"" + testId + "\","
-            + "\"sender\":{\"id\":\"" + testId + "\"},"
+            + "\"senderId\":\"" + testId + "\","
             + "\"body\":\"testBody\"}";
         ChatMessage chatMessage = objectMapper.readValue(publishedMessage, ChatMessage.class);
         assertThat(chatMessage).isNotNull();

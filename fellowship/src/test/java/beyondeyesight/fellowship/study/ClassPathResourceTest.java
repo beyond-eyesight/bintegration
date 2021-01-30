@@ -2,7 +2,7 @@ package beyondeyesight.fellowship.study;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.core.io.ClassPathResource;
 
 public class ClassPathResourceTest {
