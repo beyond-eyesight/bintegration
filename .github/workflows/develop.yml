@@ -1,4 +1,4 @@
-name: Develop - Java CI with Gradle
+name: CI - Develop
 
 on:
   push:

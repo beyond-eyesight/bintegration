@@ -1,4 +1,4 @@
-name: Deploy - Java CI with Gradle
+name: CD - Deploy
 
 on:
    workflow_dispatch:

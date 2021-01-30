@@ -1,4 +1,4 @@
-name: Main - Java CI with Gradle
+name: CI - Main
 
 on:
   push:
