@@ -1,8 +1,8 @@
 ---
 name: COMMON
 about: common ot etc issue
-title: "[COMMON]"
-labels: ''
+title: "[]"
+labels: common
 assignees: ''
 
 ---

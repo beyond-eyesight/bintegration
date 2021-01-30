@@ -1,7 +1,7 @@
 ---
 name: Discovery
 about: Discovery
-title: "[Discovery]"
+title: "[]"
 labels: discovery
 assignees: ''
 

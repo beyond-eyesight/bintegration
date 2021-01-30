@@ -1,7 +1,7 @@
 ---
 name: Apigateway
 about: Apigateway
-title: "[APIGATEWAY]"
+title: "[]"
 labels: apigateway
 assignees: ''
 

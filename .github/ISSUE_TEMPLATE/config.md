@@ -1,7 +1,7 @@
 ---
 name: Config
 about: Config
-title: "[Config]"
+title: "[]"
 labels: config
 assignees: ''
 

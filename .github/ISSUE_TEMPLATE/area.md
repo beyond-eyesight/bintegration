@@ -1,7 +1,7 @@
 ---
 name: Area
 about: Area
-title: "[AREA]"
+title: "[]"
 labels: area
 assignees: ''
 

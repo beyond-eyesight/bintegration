@@ -1,7 +1,7 @@
 ---
 name: Fellowship
 about: fellowship
-title: "[FELLOWSHIP]"
+title: "[]"
 labels: fellowship
 assignees: ''
 
