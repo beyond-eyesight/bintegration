@@ -11,9 +11,8 @@ public class AppConfig {
     public RouteLocator gatewayRoutes(RouteLocatorBuilder routeLocatorBuilder) {
         return routeLocatorBuilder.routes()
             .route(r -> r.path("/ws-stomp/**")
-//                .filters(f -> f.rewritePath("/ws-stomp/(?.*)", "/${remains}"))
-                .uri("lb://FELLOWSHIPSERVICE/")
-                .id("fellowshipservice"))
-            .build();
+                .filters(f -> f.rewritePath("/ws-stomp/(?.*)", "/${remains}"))
+                .uri("lb://FELLOWSHIPSERVICE/"))
+                .build();
     }
 }
