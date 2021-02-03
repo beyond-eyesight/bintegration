@@ -5,8 +5,8 @@ plugins {
 }
 
 group = 'beyondeyesight'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+version = '0.0.1'
+sourceCompatibility = '1.11'
 
 repositories {
     mavenCentral()
@@ -24,7 +24,7 @@ repositories {
 task prepareKotlinBuildScriptModel {}
 
 ext {
-    set('springCloudVersion', "2020.0.0-RC1")
+    set('springCloudVersion', "2020.0.1")
 }
 
 dependencyManagement {

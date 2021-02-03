@@ -1,0 +1,23 @@
+{
+  "inferenceAccelerators": [],
+  "containerDefinitions": [
+    {
+      "name": "area",
+      "image": "area:latest",
+      "resourceRequirements": null,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": "8090",
+          "protocol": "tcp"
+        }
+
+      ]
+    }
+  ],
+  "memory": "512",
+  "cpu": "256",
+  "family": "area-family",
+  "volumes": [],
+  "networkMode": "awsvpc"
+}
