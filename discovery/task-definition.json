@@ -1,0 +1,23 @@
+{
+  "inferenceAccelerators": [],
+  "containerDefinitions": [
+    {
+      "name": "discovery",
+      "image": "discovery:latest",
+      "resourceRequirements": null,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": "8761",
+          "protocol": "tcp"
+        }
+
+      ]
+    }
+  ],
+  "memory": "512",
+  "cpu": "256",
+  "family": "discovery-family",
+  "volumes": [],
+  "networkMode": "awsvpc"
+}
