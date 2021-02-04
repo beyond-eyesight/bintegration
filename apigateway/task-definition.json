@@ -9,6 +9,7 @@
       "portMappings": [
         {
           "containerPort": "5555",
+          "hostPort": "5555",
           "protocol": "tcp"
         }
 
@@ -19,5 +20,5 @@
   "cpu": "256",
   "family": "apigateway-family",
   "volumes": [],
-  "networkMode": "awsvpc"
+  "networkMode": "host"
 }

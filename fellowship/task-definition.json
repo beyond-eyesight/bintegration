@@ -9,6 +9,7 @@
       "portMappings": [
         {
           "containerPort": "8080",
+          "hostPort": "8080",
           "protocol": "tcp"
         }
 
@@ -19,5 +20,5 @@
   "cpu": "256",
   "family": "fellowship-family",
   "volumes": [],
-  "networkMode": "awsvpc"
+  "networkMode": "host"
 }

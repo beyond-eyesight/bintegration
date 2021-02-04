@@ -9,6 +9,7 @@
       "portMappings": [
         {
           "containerPort": "8888",
+          "hostPort": "8888",
           "protocol": "tcp"
         }
 
@@ -19,5 +20,5 @@
   "cpu": "256",
   "family": "config-family",
   "volumes": [],
-  "networkMode": "awsvpc"
+  "networkMode": "host"
 }

@@ -9,6 +9,7 @@
       "portMappings": [
         {
           "containerPort": "8090",
+          "hostPort": "8090",
           "protocol": "tcp"
         }
 
@@ -19,5 +20,5 @@
   "cpu": "256",
   "family": "area-family",
   "volumes": [],
-  "networkMode": "awsvpc"
+  "networkMode": "host"
 }

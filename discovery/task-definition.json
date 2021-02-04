@@ -9,6 +9,7 @@
       "portMappings": [
         {
           "containerPort": "8761",
+          "hostPort": "8761",
           "protocol": "tcp"
         }
 
@@ -19,5 +20,5 @@
   "cpu": "256",
   "family": "discovery-family",
   "volumes": [],
-  "networkMode": "awsvpc"
+  "networkMode": "host"
 }
