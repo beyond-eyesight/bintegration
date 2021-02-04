@@ -5,10 +5,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/beyond-eyesight/config
+          uri: https://github.com/beyond-eyesight/bintegration
 #          todo: 'src/main/resources/config'를 따로 뺄 수 있는지 확인.
-          searchPaths: src/main/resources/config/chatservice
-          username: p-vibe
+          searchPaths: config/src/main/resources/config/fellowshipservice
+          username: ttkmw
           password: thisispassword
       label: develop
 
