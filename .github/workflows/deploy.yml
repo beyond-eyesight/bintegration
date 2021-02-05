@@ -54,5 +54,6 @@ jobs:
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ github.event.inputs.name }}-service
-          cluster: beyondeyesight2
+          # todo: 클러스터 이름에서 숫자 지우기
+          cluster: beyondeyesight3
           wait-for-service-stability: true
