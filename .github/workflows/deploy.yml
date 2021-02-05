@@ -54,5 +54,5 @@ jobs:
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ github.event.inputs.name }}-service
-          cluster: beyondeyesight
+          cluster: beyondeyesight2
           wait-for-service-stability: true
