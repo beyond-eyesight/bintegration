@@ -14,16 +14,18 @@ management:
     web:
       exposure:
         include: "*"
-
-#spring:
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: after_route
-#          uri: https://example.org
-#          predicates:
-#            - name: Cookie
-#              args:
-#                name: cookie
-#                regexp: cookievalue
-
+spring:
+  cloud:
+    gateway:
+      routes:
+        # SockJS route
+        - id: websocket_sockjs_route
+          uri: http://localhost:8080
+          # todo: sockjs로 테스트 해보기
+          predicates:
+            - Path=/ws-stomp/**
+        # Normal Websocket route
+        - id: websocket_route
+          uri: ws://localhost:8080
+          predicates:
+            - Path=/ws-stomp/**
