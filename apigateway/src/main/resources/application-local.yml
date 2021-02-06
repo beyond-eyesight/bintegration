@@ -14,4 +14,5 @@ management:
         include: "*"
 spring:
   config:
-    import: fellowship/local.yml
+#    다른 서비스들도 연동하기
+    import: fellowship/local.yml,area/local.yml
