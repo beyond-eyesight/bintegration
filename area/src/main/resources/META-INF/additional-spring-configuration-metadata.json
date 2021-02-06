@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "db.endpoint",
+      "type": "java.lang.String",
+      "description": "Description for db.endpoint."
+    },
+    {
+      "name": "db.port",
+      "type": "java.lang.String",
+      "description": "Description for db.port."
+    }
+  ] }
