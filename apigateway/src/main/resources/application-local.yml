@@ -13,21 +13,5 @@ management:
       exposure:
         include: "*"
 spring:
-  cloud:
-    gateway:
-      routes:
-        # SockJS route
-        - id: websocket_sockjs_route
-          uri: http://localhost:8080
-          # todo: sockjs로 테스트 해보기
-          predicates:
-            - Path=/ws-stomp/**
-        # Normal Websocket route
-        - id: websocket_route
-          uri: ws://localhost:8080
-          predicates:
-            - Path=/ws-stomp/**
-        - id: chat_route
-          uri: http://localhost:8080
-          predicates:
-            - Path=/chat/**
+  config:
+    import: fellowship/local.yml
