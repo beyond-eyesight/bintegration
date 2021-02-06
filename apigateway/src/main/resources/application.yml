@@ -2,7 +2,5 @@ server:
   port: 5555
 
 spring:
-  profiles:
-    include:
-      fellowship
-    active: default
+  config:
+    import: fellowship.yml
