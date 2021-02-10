@@ -1,6 +1,9 @@
 server:
   port: 8888
+
 spring:
+  profiles:
+    active: dev
   cloud:
     config:
       server:
@@ -8,8 +11,7 @@ spring:
           uri: https://github.com/beyond-eyesight/bintegration
 #          todo: 'src/main/resources/config'를 따로 뺄 수 있는지 확인.
           searchPaths: config/src/main/resources/config/fellowshipservice
-          username: ttkmw
-          password: thisispassword
+        default-label: develop
       label: develop
 
 
