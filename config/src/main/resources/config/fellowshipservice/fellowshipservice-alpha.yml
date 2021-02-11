@@ -1,7 +1,0 @@
-spring:
-  profiles:
-    active: alpha
-  redis:
-    host: localhost
-    port: 6379
-password: "{cipher}e0c9ca59f80501f359f79d10a6c33c95aab856bda9cf4d686a18dad0b20925d4"
