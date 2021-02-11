@@ -1,16 +1,16 @@
 server:
   port: 8888
+
 spring:
   cloud:
     config:
       server:
         git:
-          uri: https://github.com/beyond-eyesight/bintegration
-#          todo: 'src/main/resources/config'를 따로 뺄 수 있는지 확인.
-          searchPaths: config/src/main/resources/config/fellowshipservice
-          username: ttkmw
-          password: thisispassword
-      label: develop
+          uri: https://github.com/ttkmw/config-repo
+          skipSslValidation: true
+          default-label: master
+          search-paths: beyond-eyesight/config/*
+        accept-empty: false
 
 
 
