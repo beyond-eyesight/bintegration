@@ -6,10 +6,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/ttkmw/config-repo
+          uri: https://github.com/beyond-eyesight/bintegration
           skipSslValidation: true
-          default-label: master
-          search-paths: beyond-eyesight/config/*
+          default-label: develop
+          search-paths: config/src/main/resources/config/*
         accept-empty: false
 
 
