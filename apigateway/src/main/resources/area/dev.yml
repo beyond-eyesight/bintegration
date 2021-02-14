@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: zone_route
+          uri: http://52.78.142.210:8090
+          predicates:
+            - Path=/zones/**
