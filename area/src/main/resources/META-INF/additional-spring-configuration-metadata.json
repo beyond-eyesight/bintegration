@@ -1,13 +1,13 @@
 {
   "properties": [
     {
-      "name": "db.endpoint",
+      "name": "elasticsearch.host",
       "type": "java.lang.String",
-      "description": "Description for db.endpoint."
+      "description": "Description for elasticsearch.host."
     },
     {
-      "name": "db.port",
+      "name": "elasticsearch.port",
       "type": "java.lang.String",
-      "description": "Description for db.port."
+      "description": "Description for elasticsearch.port."
     }
   ] }

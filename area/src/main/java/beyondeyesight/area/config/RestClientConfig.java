@@ -13,10 +13,10 @@ import org.springframework.lang.NonNull;
 @EnableElasticsearchRepositories(basePackages = "beyondeyesight.area.infra.persistence")
 public class RestClientConfig extends AbstractElasticsearchConfiguration {
 
-    @Value("${db.endpoint}")
-    private String endpoint;
+    @Value("${elasticsearch.host}")
+    private String host;
 
-    @Value("${db.port}")
+    @Value("${elasticsearch.port}")
     private String port;
 
 
@@ -25,7 +25,7 @@ public class RestClientConfig extends AbstractElasticsearchConfiguration {
     public RestHighLevelClient elasticsearchClient() {
 
         ClientConfiguration clientConfiguration = ClientConfiguration.builder()
-            .connectedTo(String.format("%s:%s", endpoint, port))
+            .connectedTo(String.format("%s:%s", host, port))
             .build();
 
         return RestClients.create(clientConfiguration).rest();
