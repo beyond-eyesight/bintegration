@@ -53,7 +53,7 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ${{ github.event.inputs.name }}-service
+          service: ${{ github.event.inputs.name }}
           # todo: 클러스터 이름에서 숫자 지우기
-          cluster: beyondeyesight3
+          cluster: test-cluster1
           wait-for-service-stability: true
