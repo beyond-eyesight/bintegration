@@ -13,6 +13,6 @@ spring:
       uri: http://localhost:8888
       label: develop # todo: ??
 
+# todo: check run
 elasticsearch:
-  host: localhost
-  port: 9200
+  endpoint: localhost

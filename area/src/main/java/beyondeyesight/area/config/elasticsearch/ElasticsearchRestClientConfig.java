@@ -1,7 +1,7 @@
-package beyondeyesight.area.config;
+package beyondeyesight.area.config.elasticsearch;
 
 import com.amazonaws.auth.AWS4Signer;
-import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.AWSCredentialsProvider;
 import lombok.RequiredArgsConstructor;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequestInterceptor;
@@ -16,25 +16,24 @@ import org.springframework.lang.NonNull;
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "beyondeyesight.area.infra.persistence")
 @RequiredArgsConstructor
-public class RestClientConfig extends AbstractElasticsearchConfiguration {
+public class ElasticsearchRestClientConfig extends AbstractElasticsearchConfiguration {
 
-    @Value("${elasticsearch.host}")
-    private String host;
+    private static final String SERVICE_NAME = "es";
+    private static final String REGION_NAME = "ap-northeast-2";
+    private final AWSCredentialsProvider awsCredentialsProvider;
 
-    @Value("${elasticsearch.port}")
-    private String port;
-
-    private final AWSStaticCredentialsProvider awsStaticCredentialsProvider;
+    @Value("${elasticsearch.endpoint}")
+    private String endpoint;
 
     @Override
     @NonNull
     public RestHighLevelClient elasticsearchClient() {
-
         AWS4Signer signer = new AWS4Signer();
-        String serviceName = "es";
-        signer.setServiceName(serviceName);
-        signer.setRegionName("ap-northeast-2");
-        HttpRequestInterceptor interceptor = new AWSRequestSigningApacheInterceptor(serviceName, signer, awsStaticCredentialsProvider);
-        return new RestHighLevelClient(RestClient.builder(HttpHost.create(host)).setHttpClientConfigCallback(e -> e.addInterceptorLast(interceptor)));
+        signer.setServiceName(SERVICE_NAME);
+        signer.setRegionName(REGION_NAME);
+        HttpRequestInterceptor interceptor = new AWSRequestSigningApacheInterceptor(SERVICE_NAME,
+            signer, awsCredentialsProvider);
+        return new RestHighLevelClient(RestClient.builder(HttpHost.create(endpoint))
+            .setHttpClientConfigCallback(e -> e.addInterceptorLast(interceptor)));
     }
 }

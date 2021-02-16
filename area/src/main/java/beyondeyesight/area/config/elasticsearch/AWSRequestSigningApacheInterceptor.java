@@ -1,4 +1,4 @@
-package beyondeyesight.area.config;
+package beyondeyesight.area.config.elasticsearch;
 
 import static org.apache.http.protocol.HttpCoreContext.HTTP_TARGET_HOST;
 
@@ -30,7 +30,7 @@ import org.apache.http.protocol.HttpContext;
  * An {@link HttpRequestInterceptor} that signs requests using any AWS {@link Signer}
  * and {@link AWSCredentialsProvider}.
  */
-public class AWSRequestSigningApacheInterceptor implements HttpRequestInterceptor {
+class AWSRequestSigningApacheInterceptor implements HttpRequestInterceptor {
     /**
      * The service that we're connecting to. Technically not necessary.
      * Could be used by a future Signer, though.

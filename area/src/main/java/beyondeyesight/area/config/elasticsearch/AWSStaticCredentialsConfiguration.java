@@ -1,4 +1,4 @@
-package beyondeyesight.area.config;
+package beyondeyesight.area.config.elasticsearch;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AWSStaticCredentialsConfiguration {
     @Value("${aws.es.accessKey}")
-    private String esAccessKey = null;
+    private String esAccessKey;
 
     @Value("${aws.es.secretKey}")
-    private String esSecretKey = null;
+    private String esSecretKey;
 
     // todo 하드코딩 스타일 지우고, AWSCredentialsConfiguration로 수정.
     @Bean

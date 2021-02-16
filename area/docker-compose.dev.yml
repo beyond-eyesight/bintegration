@@ -1,0 +1,6 @@
+version: "3"
+services:
+  apigateway:
+    image: beyondeyesight/area:latest
+    ports:
+      - "8090:8090"
