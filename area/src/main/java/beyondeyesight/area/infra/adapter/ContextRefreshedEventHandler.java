@@ -28,8 +28,8 @@ public class ContextRefreshedEventHandler implements ApplicationListener<Context
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-//        List<Zone> zones = createInitialZones();
-//        zoneRepository.saveAll(zones);
+        List<Zone> zones = createInitialZones();
+        zoneRepository.saveAll(zones);
     }
 
     private List<Zone> createInitialZones() {

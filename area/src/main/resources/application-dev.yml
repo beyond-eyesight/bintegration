@@ -1,3 +1,7 @@
-db:
-  endpoint: search-beyondeyesight-s2tg33fpt7rykt643pbzzia5qq.ap-northeast-2.es.amazonaws.com
-  port: 9200
+elasticsearch:
+  endpoint: https://search-test-be-area6-idmzzvyl3gz3w6e3tjo74bumry.ap-northeast-2.es.amazonaws.com
+
+aws:
+  es:
+    accessKey: xxx
+    secretKey: xxx

@@ -44,9 +44,13 @@ dependencies {
     compile 'com.google.guava:guava:19.0'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.cloud:spring-cloud-config-client'
+    // https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-core
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-core', version: '1.11.221'
+//    implementation group: 'com.amazonaws', name: 'aws-java-sdk-elasticsearch', version: '1.11.221'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     testCompile "org.testcontainers:elasticsearch:1.15.1"
     testImplementation 'org.mockito:mockito-core'
 }
