@@ -1,12 +1,23 @@
 spring:
   application:
-    name: fellowshipservice # 애플리케이션 이름은 컨피그 서버의 디렉터리 이름과 일치해야 한다.
-  profiles:
-    active:
-      dev
+    name: fellowship
   cloud:
     config:
-      uri: http://localhost:8888
-      label: develop
-encrypt:
-  key: IMSTMMETRIC
+      uri: http://localhost:8888/fellowship
+      label: local
+      fail-fast: true
+      enabled: true
+
+#encrypt:
+#  key: IMSTMMETRIC
+
+#  "spring.cloud.config.enabled=true",
+management:
+  endpoint:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: *
+#  "management.endpoint.env.post.enabled=true", "management.endpoints.web.exposure.include=env, refresh" },

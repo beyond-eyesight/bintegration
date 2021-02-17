@@ -2,10 +2,23 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: fellowship
   profiles:
     active: local
+  config:
+    import: "configserver:"
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      label: develop
+      fail-fast: true
+      enabled: true
 
 management:
+  endpoint:
+    env:
+      enabled: true
   endpoints:
     web:
       exposure:
