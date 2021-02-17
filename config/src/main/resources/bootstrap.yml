@@ -1,8 +1,19 @@
-encrypt:
-  key: IMSTMMETRIC
+#encrypt:
+#  key: IMSTMMETRIC
 spring:
+  application:
+    name: configserver
   cloud:
     config:
       server:
         encrypt:
           enabled: false
+
+management:
+  endpoint:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: *

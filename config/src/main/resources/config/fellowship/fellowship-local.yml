@@ -2,3 +2,9 @@ spring:
   redis:
     host: local
     port: 6379
+  data:
+    cassandra:
+      contact-points: localhost
+      port: 9042
+      keyspace-name: testKeySpace
+      local-datacenter: DC1
