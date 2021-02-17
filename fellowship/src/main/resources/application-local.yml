@@ -1,4 +1,12 @@
 spring:
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      label: develop
+      fail-fast: true
+      enabled: true
   redis:
     host: localhost
     port: 6379

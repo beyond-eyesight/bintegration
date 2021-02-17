@@ -6,14 +6,6 @@ spring:
     name: fellowship
   profiles:
     active: local
-  config:
-    import: "configserver:"
-  cloud:
-    config:
-      uri: http://localhost:8888/
-      label: develop
-      fail-fast: true
-      enabled: true
 
 management:
   endpoint:
