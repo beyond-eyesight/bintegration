@@ -2,10 +2,15 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: fellowship
   profiles:
     active: local
 
 management:
+  endpoint:
+    env:
+      enabled: true
   endpoints:
     web:
       exposure:

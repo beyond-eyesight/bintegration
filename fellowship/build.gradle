@@ -41,14 +41,14 @@ dependencyManagement {
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter'
-    compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-websocket'
     compile 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     compile 'org.springframework.boot:spring-boot-starter-data-cassandra'
     compile 'org.springframework.security:spring-security-rsa'
     compile 'it.ozimov:embedded-redis:0.7.2'
-    compile 'org.springframework.cloud:spring-cloud-config-client'
     compile 'org.springframework.boot:spring-boot-starter-data-redis'
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-config
+    compile 'org.springframework.cloud:spring-cloud-starter-config'
 
     // https://mvnrepository.com/artifact/software.aws.mcs/aws-sigv4-auth-cassandra-java-driver-plugin
     compile group: 'software.aws.mcs', name: 'aws-sigv4-auth-cassandra-java-driver-plugin', version: '4.0.2'
@@ -58,12 +58,16 @@ dependencies {
     //todo: 왜 다른 의존성에 안딸아오는지 체크
     compile 'com.google.guava:guava:19.0'
     compileOnly 'org.projectlombok:lombok'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-actuator
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
     annotationProcessor 'org.projectlombok:lombok'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.cassandraunit:cassandra-unit-spring:4.3.1.0'
     testImplementation 'org.mockito:mockito-core'
     // todo: 지워도 되는거 확실해지면 지우기. 없어도 된다는 걸 확인했지만, 왜 이거 넣었었는지 까먹음.
     // compile group: 'org.hectorclient', name: 'hector-core', version: '2.0-0'
+    // https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-client
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-config-client'
 }
 
 test {

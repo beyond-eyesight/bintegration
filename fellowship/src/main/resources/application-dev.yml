@@ -1,17 +1,9 @@
 spring:
-  redis:
-    host: redis
-    port: 6379
-
-  data:
-    cassandra:
-      contact-points: cassandra.ap-northeast-2.amazonaws.com
-      port: 9142
-      keyspace-name: testkeyspace
-      local-datacenter: ap-northeast-2
-      ssl: true
-      # todo: config 서버로 옮길 때 새로 생성하기
-      username: geunwonlim-at-174579883227
-      password: pgDHHX7h+cYB/MFR2zZehK9WeYLxNyQU8DeytO0YshI=
-      request:
-        consistency: local_quorum
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      label: develop
+      fail-fast: true
+      enabled: true
