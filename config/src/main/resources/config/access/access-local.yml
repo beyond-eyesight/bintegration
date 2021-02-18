@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/beyondeyesight
+    username: beyondeyesight
+    password: '{cipher}f5f9f5eaf25859cd31f5b683370677d6d2a71a72c9d30f8b10fc3b7d00d178eb'
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show-sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
