@@ -1,8 +1,14 @@
 spring:
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      uri: http://localhost:8888/
+      label: develop
+      fail-fast: true
+      enabled: true
   datasource:
     url: jdbc:mysql://localhost:3306/beyondeyesight
-    username: beyondeyesight
-    password: ttkmw
   jpa:
     show-sql: true
     hibernate:

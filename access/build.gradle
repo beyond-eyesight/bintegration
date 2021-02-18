@@ -43,6 +43,8 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-hateoas'
     compile 'org.springframework.hateoas:spring-hateoas'
     compile 'io.jsonwebtoken:jjwt-api:0.11.2'
+    compile 'org.springframework.security:spring-security-rsa'
+    compile 'org.springframework.cloud:spring-cloud-starter-config'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
