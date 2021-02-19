@@ -1,6 +1,8 @@
 version: "3"
 services:
-  apigateway:
+  access:
     image: beyondeyesight/access:latest
     ports:
       - "8081:8081"
+    environment:
+      ENCRYPT_KEY: ${ENCRYPT_KEY}

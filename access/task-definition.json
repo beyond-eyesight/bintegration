@@ -4,6 +4,12 @@
     {
       "name": "access",
       "image": "access:latest",
+      "environment": [
+        {
+          "name": "ENCRYPT_KEY",
+          "value": "IAMSYMMETRIC"
+        }
+      ],
       "resourceRequirements": null,
       "essential": true,
       "portMappings": [
