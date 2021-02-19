@@ -4,12 +4,6 @@
     {
       "name": "access",
       "image": "access:latest",
-      "environment": [
-        {
-          "name": "ENCRYPT_KEY",
-          "value": "IAMSYMMETRIC"
-        }
-      ],
       "resourceRequirements": null,
       "essential": true,
       "portMappings": [
@@ -18,8 +12,11 @@
           "hostPort": "8081",
           "protocol": "tcp"
         }
-
-      ]
+      ],
+      "secrets": [{
+        "name": "ENCRYPT_KEY",
+        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:174579883227:secret:config_test-gnWCfz"
+      }]
     }
   ],
   "memory": "512",
