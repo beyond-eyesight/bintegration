@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/beyondeyesight
     username: beyondeyesight
-    password: '{cipher}f5f9f5eaf25859cd31f5b683370677d6d2a71a72c9d30f8b10fc3b7d00d178eb'
+    password: '{cipher}e8293a7d1d75c4c02e76a43570bef44e9096b074af3665cb3d1f8b75fd644858'
   jpa:
     show-sql: true
     hibernate:

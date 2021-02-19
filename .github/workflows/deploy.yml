@@ -55,5 +55,5 @@ jobs:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
           service: ${{ github.event.inputs.name }}
           # todo: 클러스터 이름에서 숫자 지우기
-          cluster: test-cluster2
+          cluster: test-cluster1
           wait-for-service-stability: true

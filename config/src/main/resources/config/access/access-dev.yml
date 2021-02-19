@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://test-access-1.cuwocpon5oew.ap-northeast-2.rds.amazonaws.com:3306/access
     username: beyondeyesight
-    password: '{cipher}4517326d65dc7a7424d981f3f0c42b90da31317ef28dec52246af9a5a98ea480'
+    password: '{cipher}1656fb032f87c963aac5930523bc4e928e574adf530eba8ab64faabf6e40bbe9'
   jpa:
     show-sql: true
     hibernate:
