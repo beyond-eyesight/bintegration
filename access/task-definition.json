@@ -19,6 +19,7 @@
       }]
     }
   ],
+  "executionRoleArn": "arn:aws:iam::174579883227:role/ecsTaskExecutionRole",
   "memory": "512",
   "cpu": "256",
   "family": "access",
