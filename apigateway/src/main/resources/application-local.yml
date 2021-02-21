@@ -5,6 +5,7 @@ spring:
         enabled: true
       label: develop
       fail-fast: true
+
     gateway:
       discovery:
         locator:

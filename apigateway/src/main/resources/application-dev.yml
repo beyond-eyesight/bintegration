@@ -1,7 +1,4 @@
 spring:
-  config:
-    #    다른 서비스들도 연동하기
-    import: fellowship/dev.yml
   cloud:
     config:
       discovery:
