@@ -3,10 +3,10 @@ spring:
     import: "optional:configserver:"
   cloud:
     config:
-      uri: http://3.36.52.105:8888/
+      discovery:
+        enabled: true
       label: develop
       fail-fast: true
-      enabled: true
 logging:
   level:
     org:

@@ -4,10 +4,50 @@ spring:
     import: fellowship/dev.yml
   cloud:
     config:
-      uri: http://3.36.52.105:8888/
+      discovery:
+        enabled: true
       label: develop
       fail-fast: true
-      enabled: true
+
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        # SockJS route
+        - id: access_route
+          uri: lb://ACCESS
+          predicates:
+            - Path=/access/**
+          filters:
+            - RewritePath=/access/(?<remaining>.*), /$\{remaining}
+        - id: area_route
+          uri: lb://AREA
+          predicates:
+            - Path=/area/**
+          filters:
+            - RewritePath=/area/(?<remaining>.*), /$\{remaining}
+
+        - id: fellowship_http_route
+          uri: lb://FELLOWSHIP
+          # todo: sockjs로 테스트 해보기
+          predicates:
+            - Path=/fellowship/**
+          filters:
+            - RewritePath=/fellowship/(?<remaining>.*), /$\{remaining}
+        # Normal Websocket route
+        - id: fellowship_websocket_route
+          uri: lb:ws://FELLOWSHIP
+          predicates:
+            - Path=/fellowship/**
+          filters:
+            - RewritePath=/fellowship/(?<remaining>.*), /$\{remaining}
+        - id: config_route
+          uri: lb://CONFIGSERVER
+          predicates:
+            - Path=/config/**
+          filters:
+            - RewritePath=/config/(?<remaining>.*), /$\{remaining}
 
 eureka:
   instance:
