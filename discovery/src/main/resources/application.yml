@@ -6,14 +6,6 @@ eureka:
     fetch-registry: false # 레지스트리 정보를 로컬에 캐싱하지 않음
   server:
     wait-time-in-ms-when-sync-empty: 5 # 운영 환경에서 주석 처리 됨(로컬에서는 유레카 서비스를 테스트할 때 이 프로퍼티가 없으면 등록한 서비스를 즉시 알리지 않기 때문에 필요)
-
-
 spring:
-  config:
-    import: "optional:configserver:"
-  cloud:
-    config:
-      uri: http://52.79.96.126:8888/
-      label: develop
-      fail-fast: true
-      enabled: true
+  profiles:
+    active: local
