@@ -6,3 +6,9 @@ spring:
     name: apigateway
   profiles:
     active: local
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

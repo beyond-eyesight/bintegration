@@ -9,6 +9,8 @@ spring:
       enabled: true
   datasource:
     url: jdbc:mysql://localhost:3306/beyondeyesight
+    username: beyondeyesight
+    password: ttkmw
   jpa:
     show-sql: true
     hibernate:

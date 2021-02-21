@@ -7,3 +7,13 @@ spring:
       label: develop
       fail-fast: true
       enabled: true
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          cassandra:
+            core:
+              cql:
+                CqlTemplate: DEBUG

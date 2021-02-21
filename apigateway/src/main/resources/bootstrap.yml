@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: gatewayservice
-  cloud:
-    config:
-      enabled: true

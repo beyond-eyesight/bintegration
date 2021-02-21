@@ -11,8 +11,4 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
-      label: develop # todo: ??
-
-# todo: check run
-elasticsearch:
-  endpoint: localhost
+      label: develop

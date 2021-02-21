@@ -7,11 +7,6 @@
 #    serviceUrl:
 #      defaultZone: http://52.78.142.210:8761/eureka
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 spring:
   config:
     #    다른 서비스들도 연동하기
