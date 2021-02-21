@@ -5,7 +5,7 @@ spring:
   application:
     name: fellowship
   profiles:
-    active: local
+    active: dev
 
 management:
   endpoint:
