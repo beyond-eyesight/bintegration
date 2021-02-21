@@ -1,3 +1,7 @@
-db:
-  host: prod
-  port: 9200
+elasticsearch:
+  endpoint: https://search-test-be-area6-idmzzvyl3gz3w6e3tjo74bumry.ap-northeast-2.es.amazonaws.com
+
+aws:
+  es:
+    accessKey: '{cipher}d690b9b5a5cedb42624c8ba47f993279e44f4e456e161c6e7c925005e1a75b4a0caf6d9fe0438f8d0af1e42766d6c656'
+    secretKey: '{cipher}d23b900073424307fece04c19906f0385f84f7d242f8e0c9d09a414941e2468c20a150a84f801ce97bbda48c678d2888fff965fc6ba8f9fd1fc6a6b73c530f0e'

@@ -1,7 +1,8 @@
-elasticsearch:
-  endpoint: https://search-test-be-area6-idmzzvyl3gz3w6e3tjo74bumry.ap-northeast-2.es.amazonaws.com
-
-aws:
-  es:
-    accessKey: xxx
-    secretKey: xxx
+spring:
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+      uri: http://52.79.96.126:8888/
+      label: develop
+      fail-fast: true
