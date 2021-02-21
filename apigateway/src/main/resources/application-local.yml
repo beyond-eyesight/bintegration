@@ -7,33 +7,34 @@ spring:
       routes:
         # SockJS route
         - id: access_route
-          uri: lb://ACCESS:8081
+          uri: lb://ACCESS
           predicates:
             - Path=/signIn/**
         - id: area_route
-          uri: lb://AREA:8081
+          uri: lb://AREA
           predicates:
             - Path=/area/**
 
         - id: websocket_sockjs_route
-          uri: lb://FELLOWSHIP:8080
+          uri: lb://FELLOWSHIP
           # todo: sockjs로 테스트 해보기
           predicates:
             - Path=/ws-stomp/**
         # Normal Websocket route
         - id: websocket_route
-          uri: lb:ws://FELLOWSHIP:8080
+          uri: lb:ws://FELLOWSHIP
           predicates:
             - Path=/ws-stomp/**
         - id: chat_route
-          uri: lb://FELLOWSHIP:8080
+          uri: lb://FELLOWSHIP
           predicates:
             - Path=/chat/**
 
         - id: config_route
-          uri: lb://CONFIG:8888
+          uri: lb://CONFIG
           predicates:
-            - Path=/config
+            - Path=/config/**
+
 
 eureka:
   instance:
