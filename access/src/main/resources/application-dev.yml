@@ -6,7 +6,7 @@ spring:
       discovery:
         enabled: true
       label: develop
-      fail-fast: true
+
 logging:
   level:
     org:
