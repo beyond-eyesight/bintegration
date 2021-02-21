@@ -9,31 +9,36 @@ spring:
         - id: access_route
           uri: lb://ACCESS
           predicates:
-            - Path=/signIn/**
+            - Path=/access/**
+          filters:
+            - RewritePath=/access/(?<remaining>.*), /$\{remaining}
         - id: area_route
           uri: lb://AREA
           predicates:
             - Path=/area/**
+          filters:
+            - RewritePath=/area/(?<remaining>.*), /$\{remaining}
 
-        - id: websocket_sockjs_route
+        - id: fellowship_http_route
           uri: lb://FELLOWSHIP
           # todo: sockjs로 테스트 해보기
           predicates:
-            - Path=/ws-stomp/**
+            - Path=/fellowship/**
+          filters:
+            - RewritePath=/fellowship/(?<remaining>.*), /$\{remaining}
         # Normal Websocket route
-        - id: websocket_route
+        - id: fellowship_websocket_route
           uri: lb:ws://FELLOWSHIP
           predicates:
-            - Path=/ws-stomp/**
-        - id: chat_route
-          uri: lb://FELLOWSHIP
-          predicates:
-            - Path=/chat/**
-
+            - Path=/fellowship/**
+          filters:
+            - RewritePath=/fellowship/(?<remaining>.*), /$\{remaining}
         - id: config_route
-          uri: lb://CONFIG
+          uri: lb://CONFIGSERVER
           predicates:
             - Path=/config/**
+          filters:
+            - RewritePath=/config/(?<remaining>.*), /$\{remaining}
 
 
 eureka:
