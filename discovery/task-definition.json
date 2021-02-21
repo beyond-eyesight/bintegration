@@ -12,10 +12,14 @@
           "hostPort": "8761",
           "protocol": "tcp"
         }
-
-      ]
+      ],
+      "secrets": [{
+        "name": "ENCRYPT_KEY",
+        "valueFrom": "arn:aws:secretsmanager:ap-northeast-2:174579883227:secret:ENCRYPT_KEY-I43Lmf"
+      }]
     }
   ],
+  "executionRoleArn": "arn:aws:iam::174579883227:role/ecsTaskExecutionRole",
   "memory": "512",
   "cpu": "256",
   "family": "discovery",

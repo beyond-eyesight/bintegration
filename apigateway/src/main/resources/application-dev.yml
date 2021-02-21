@@ -16,3 +16,9 @@ spring:
   config:
     #    다른 서비스들도 연동하기
     import: fellowship/dev.yml
+  cloud:
+    config:
+      uri: http://52.79.96.126:8888/
+      label: develop
+      fail-fast: true
+      enabled: true
