@@ -6,7 +6,7 @@ spring:
     name: configserver
   profiles:
     active:
-      local
+      dev
   cloud:
     config:
       server:
