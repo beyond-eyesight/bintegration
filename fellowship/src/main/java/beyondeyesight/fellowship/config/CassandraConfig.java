@@ -8,12 +8,14 @@ import org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfigurati
 import org.springframework.boot.autoconfigure.cassandra.CassandraProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.cassandra.config.SchemaAction;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 
 
 
 
+@Profile("!local")
 @Configuration
 @EnableCassandraRepositories(basePackages = "beyondeyesight.fellowship.infra.persistence")
 @EnableConfigurationProperties(CassandraProperties.class)

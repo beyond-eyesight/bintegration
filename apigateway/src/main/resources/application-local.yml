@@ -2,6 +2,11 @@ spring:
   config:
 #    다른 서비스들도 연동하기
     import: fellowship/local.yml
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
 
 eureka:
   instance:
