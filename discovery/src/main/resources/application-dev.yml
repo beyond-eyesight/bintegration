@@ -1,9 +1,0 @@
-spring:
-  config:
-    import: "optional:configserver:"
-  cloud:
-    config:
-      uri: http://3.36.52.105:8888/
-      label: develop
-      fail-fast: true
-      enabled: true

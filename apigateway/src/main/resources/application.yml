@@ -5,7 +5,7 @@ spring:
   application:
     name: apigateway
   profiles:
-    active: local
+    active: dev
 
 management:
   endpoints:
