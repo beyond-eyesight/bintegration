@@ -12,6 +12,6 @@ spring:
       ssl: true
       # todo: config 서버로 옮길 때 새로 생성하기
       username: geunwonlim-at-174579883227
-      password: '{cipher}f580670fabd139d4a3dad9e2e3abcb353e4620ac4bf9fe2778060917c57c14b085c9bcc5aca0121a22f677fcd70e657a0ea8a7cfd5bf61ca03f416044f1ade4d'
+      password: '{cipher}9f04e2176b9ef22961bb3d58643caf34cda8e556b025ab204b18f0056945a559855c8c8cb7a2126d2ebc126a0ed40d966bd87df17f813f64f36707fa6e695a97'
       request:
         consistency: local_quorum
