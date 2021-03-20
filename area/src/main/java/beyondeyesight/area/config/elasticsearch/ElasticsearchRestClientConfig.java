@@ -14,7 +14,7 @@ import org.springframework.data.elasticsearch.config.AbstractElasticsearchConfig
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.lang.NonNull;
 
-@Profile("!local")
+@Profile("dev")
 @Configuration
 @EnableElasticsearchRepositories(basePackages = "beyondeyesight.area.infra.persistence")
 @RequiredArgsConstructor

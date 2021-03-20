@@ -35,14 +35,13 @@ public class ChatMessageCassandraRepositoryTest {
     @Autowired
     private ChatMessageCassandraRepository chatMessageCassandraRepository;
 
-    @Autowired
-    ChatRoomCassandraRepository chatRoomCassandraRepository;
-
 
     //todo: ID 생성을 DB 레벨에서 할 수 있는지 확인. 애플리케이션에서는 ID 안넣어도 DB에서 생성해주는지.
     @DisplayName("#save() : should not be null after saving entity")
     @Test
     public void save() {
+        System.out.println("kakakaka");
+        System.out.println(chatMessageCassandraRepository);
         UUID id = UUID.randomUUID();
         UUID chatRoomId = UUID.randomUUID();
         UUID senderId = UUID.randomUUID();

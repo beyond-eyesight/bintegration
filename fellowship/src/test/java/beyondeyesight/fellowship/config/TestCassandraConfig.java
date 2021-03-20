@@ -3,8 +3,8 @@ package beyondeyesight.fellowship.config;
 import java.util.Collections;
 import javax.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.cassandra.config.AbstractCassandraConfiguration;
 import org.springframework.data.cassandra.config.CqlSessionFactoryBean;
@@ -15,7 +15,7 @@ import org.springframework.lang.NonNull;
 
 @Profile("test")
 @EnableCassandraRepositories(basePackages = "beyondeyesight.fellowship.infra.persistence")
-@TestConfiguration
+@Configuration
 public class TestCassandraConfig extends AbstractCassandraConfiguration {
 
     @Value("${spring.data.cassandra.keyspace-name}")
