@@ -5,8 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import beyondeyesight.fellowship.config.TestCassandraConfig;
 import beyondeyesight.fellowship.domain.model.chat.ChatMessage;
 import java.util.UUID;
-import org.cassandraunit.spring.CassandraUnitDependencyInjectionTestExecutionListener;
-import org.cassandraunit.spring.EmbeddedCassandra;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,20 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootContextLoader;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 
 
 /*
  * reference: https://github.com/omlip/cassandra-unit-spring-demo
  * */
 @ActiveProfiles("test")
-@TestExecutionListeners(listeners = {
-    CassandraUnitDependencyInjectionTestExecutionListener.class,
-    DependencyInjectionTestExecutionListener.class}
-)
-@EmbeddedCassandra(timeout = 60000)
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {TestCassandraConfig.class}, loader = SpringBootContextLoader.class)
 public class ChatMessageCassandraRepositoryTest {
