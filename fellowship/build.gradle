@@ -62,7 +62,11 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
     annotationProcessor 'org.projectlombok:lombok'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
-    testCompile 'org.cassandraunit:cassandra-unit-spring:4.3.1.0'
+    testCompile "org.testcontainers:cassandra:1.15.2"
+    // https://mvnrepository.com/artifact/org.testcontainers/database-commons
+    implementation group: 'org.testcontainers', name: 'database-commons', version: '1.15.2'
+
+
     testImplementation 'org.mockito:mockito-core'
     // todo: 지워도 되는거 확실해지면 지우기. 없어도 된다는 걸 확인했지만, 왜 이거 넣었었는지 까먹음.
     // compile group: 'org.hectorclient', name: 'hector-core', version: '2.0-0'
