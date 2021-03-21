@@ -13,5 +13,5 @@ access 서비스는 사용자가 beyond-eyesight 내 어플리케이션들을 �
 
 ## 3. 주요 기술
 
-java, spring-boot, jpa, mysql, spring-security, [spring-projects-experimental/spring-authorization-server](https://github.com/spring-projects-experimental/spring-authorization-server)
+java, spring-boot, jpa, mysql, spring-security, keycloak
 
