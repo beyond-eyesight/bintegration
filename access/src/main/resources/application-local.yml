@@ -20,6 +20,31 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
 
+keycloak:
+  auth-server-url: http://localhost:8180/auth
+  realm: SpringBootKeycloak
+  resource: login-app
+  public-client: true
+#  security-constraints:
+#    - auth-roles:
+#      - user
+#    - security-collections:
+#      - patterns:
+#        - /customer/*
+
+
+#    securityCollections:
+#      patterns: /customer/*
+
+#    securityCollections[0]:
+#      patterns[0]: /customer/*
+#    auth-roles[0]: user
+
+
+
+#    patterns[0]: /customer/*
+
+
 eureka:
   instance:
     prefer-ip-address: true # 서비스 이름 대신 서비스 IP 주소 등록
