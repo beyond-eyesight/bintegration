@@ -2,12 +2,17 @@ package beyondeyesight.user.ui;
 
 import java.security.Principal;
 import java.util.Arrays;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class WebController {
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     @GetMapping(path = "/external")
     public String index() {

@@ -27,7 +27,6 @@ keycloak:
   realm: SpringBootKeycloak
   resource: login-app
   public-client: true
-  enable-basic-auth: true
 #  security-constraints:
 #    - auth-roles:
 #      - user

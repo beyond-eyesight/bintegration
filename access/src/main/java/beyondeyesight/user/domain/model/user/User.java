@@ -2,6 +2,7 @@ package beyondeyesight.user.domain.model.user;
 
 import beyondeyesight.user.domain.model.BaseEntity;
 import beyondeyesight.user.domain.model.user.role.RolesOfUser;
+import java.security.Principal;
 import java.util.Collection;
 import java.util.UUID;
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import org.keycloak.adapters.spi.KeycloakAccount;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -19,7 +21,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class User extends BaseEntity implements UserDetails {
+public class User extends BaseEntity implements UserDetails, Principal, KeycloakAccount {
     @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
@@ -99,4 +101,8 @@ public class User extends BaseEntity implements UserDetails {
             '}';
     }
 
+    @Override
+    public Principal getPrincipal() {
+        return this;
+    }
 }
