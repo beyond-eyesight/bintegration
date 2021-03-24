@@ -13,7 +13,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import org.keycloak.adapters.spi.KeycloakAccount;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -21,7 +20,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class User extends BaseEntity implements UserDetails, Principal, KeycloakAccount {
+public class User extends BaseEntity implements UserDetails, Principal {
+
     @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
@@ -99,10 +99,5 @@ public class User extends BaseEntity implements UserDetails, Principal, Keycloak
             ", password='" + password + '\'' +
             ", roles=" + roles +
             '}';
-    }
-
-    @Override
-    public Principal getPrincipal() {
-        return this;
     }
 }
