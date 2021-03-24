@@ -2,6 +2,7 @@ package beyondeyesight.user.config;
 
 import beyondeyesight.user.infra.security.JwtAuthenticationFilter;
 import beyondeyesight.user.ui.UserController;
+import org.keycloak.OAuth2Constants;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
 import org.keycloak.adapters.springsecurity.KeycloakSecurityComponents;
 import org.keycloak.adapters.springsecurity.authentication.KeycloakAuthenticationProvider;
@@ -64,9 +65,9 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
     protected KeycloakAuthenticationProcessingFilter keycloakAuthenticationProcessingFilter()
         throws Exception {
         RequestMatcher requestMatcher = new OrRequestMatcher(new AntPathRequestMatcher(
-            UserController.SIGN_IN_ENDPOINT), new RequestHeaderRequestMatcher("Authorization"),
+            UserController.SIGN_IN_ENDPOINT), new RequestHeaderRequestMatcher(KeycloakAuthenticationProcessingFilter.AUTHORIZATION_HEADER),
             new QueryParamPresenceRequestMatcher(
-                "access_token"));
+                OAuth2Constants.ACCESS_TOKEN));
         KeycloakAuthenticationProcessingFilter filter = new KeycloakAuthenticationProcessingFilter(authenticationManagerBean(), requestMatcher);
         filter.setSessionAuthenticationStrategy(sessionAuthenticationStrategy());
         return filter;
