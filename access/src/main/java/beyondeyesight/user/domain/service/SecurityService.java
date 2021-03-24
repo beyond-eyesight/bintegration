@@ -1,5 +1,6 @@
 package beyondeyesight.user.domain.service;
 
+import beyondeyesight.user.domain.model.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -14,9 +15,9 @@ public class SecurityService {
     private final AuthenticationManager authenticationManager;
     private final TokenProvider tokenProvider;
 
-    public String authenticate(String signature, String password) {
+    public String authenticate(User user) {
         Authentication authentication = authenticationManager.authenticate(
-            authenticationService.create(signature, password)
+            authenticationService.create(user)
         );
 
         // todo: 컨텍스트를 여기에서 가져와도 되나?

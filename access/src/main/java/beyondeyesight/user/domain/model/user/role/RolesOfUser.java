@@ -3,9 +3,11 @@ package beyondeyesight.user.domain.model.user.role;
 import beyondeyesight.user.domain.model.user.User;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Embeddable;
 import javax.persistence.OneToMany;
@@ -99,5 +101,15 @@ public class RolesOfUser {
     @Override
     public int hashCode() {
         return Objects.hash(roles);
+    }
+
+    public Set<String> get() {
+        Set<String> roles = new HashSet<>();
+        for (UserRole userRole: this.roles) {
+            Role role = userRole.getRole();
+            roles.add(role.getName());
+        }
+
+        return roles;
     }
 }

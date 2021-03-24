@@ -24,8 +24,9 @@ public class UserController {
 
     @PostMapping(value = SIGN_IN_ENDPOINT)
     public ResponseEntity<SignInResponse> signIn(@RequestBody final SignInRequest signInRequest) {
+        User bySignature = userService.findBySignature(signInRequest.getSignature());
         String token = securityService
-            .authenticate(signInRequest.getSignature(), signInRequest.getPassword());
+            .authenticate(bySignature);
 
         return ResponseEntity.created(getLocation(signInRequest.getSignature()))
             .body(SignInResponse.of(signInRequest.getSignature(), token));
