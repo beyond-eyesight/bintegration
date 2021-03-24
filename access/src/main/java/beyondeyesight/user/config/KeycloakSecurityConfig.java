@@ -83,7 +83,6 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-
     //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //        http.cors().and().csrf().disable()
