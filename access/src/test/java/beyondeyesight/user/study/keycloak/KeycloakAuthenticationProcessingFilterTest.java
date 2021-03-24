@@ -44,7 +44,7 @@ public class KeycloakAuthenticationProcessingFilterTest {
     }
 
     private static Stream<Arguments> getRequestCasesForFilter() {
-        return Stream.of(Arguments.of(stubGetRequest("/sso/login")),
+        return Stream.of(Arguments.of(stubGetRequest(UserController.SIGN_IN_ENDPOINT)),
             Arguments.of(stubRequestWithAuthHeader()), Arguments.of(stubRequestWithParam()));
     }
 
