@@ -1,6 +1,6 @@
 package beyondeyesight.user.ui;
 
-import beyondeyesight.user.domain.model.user.User;
+import beyondeyesight.user.domain.model.user.DeprecateUser;
 import beyondeyesight.user.domain.model.user.dto.SignInRequest;
 import beyondeyesight.user.domain.model.user.dto.SignInResponse;
 import beyondeyesight.user.domain.service.SecurityService;
@@ -24,7 +24,7 @@ public class UserController {
 
     @PostMapping(value = SIGN_IN_ENDPOINT)
     public ResponseEntity<SignInResponse> signIn(@RequestBody final SignInRequest signInRequest) {
-        User bySignature = userService.findBySignature(signInRequest.getSignature());
+        DeprecateUser bySignature = userService.findBySignature(signInRequest.getSignature());
         String token = securityService
             .authenticate(bySignature);
 
@@ -33,7 +33,7 @@ public class UserController {
     }
 
     private URI getLocation(final String signature) {
-        User foundBySignature = userService.findBySignature(signature);
+        DeprecateUser foundBySignature = userService.findBySignature(signature);
         return WebMvcLinkBuilder.linkTo(UserController.class).slash(foundBySignature.getId())
             .toUri();
     }

@@ -1,6 +1,6 @@
 package beyondeyesight.user.infra.security;
 
-import beyondeyesight.user.domain.model.user.User;
+import beyondeyesight.user.domain.model.user.DeprecateUser;
 import beyondeyesight.user.domain.service.TokenProvider;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -26,7 +26,7 @@ public class JwtTokenProvider implements TokenProvider {
 
     @Override
     public String generate(Authentication authentication) {
-        User user = (User) authentication.getPrincipal();
+        DeprecateUser user = (DeprecateUser) authentication.getPrincipal();
         return Jwts.builder()
             .signWith(Keys.hmacShaKeyFor(jwtSecret.getBytes()), SignatureAlgorithm.HS512)
             .setHeaderParam("type", jwtType)

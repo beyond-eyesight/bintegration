@@ -1,6 +1,6 @@
 package beyondeyesight.user.domain.model.user.role;
 
-import beyondeyesight.user.domain.model.user.User;
+import beyondeyesight.user.domain.model.user.DeprecateUser;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -42,7 +42,7 @@ public class RolesOfUser {
         return new RolesOfUser(merged);
     }
 
-    private Optional<User> findUser() {
+    private Optional<DeprecateUser> findUser() {
         return this.roles.stream().findAny().map(UserRole::getUser);
     }
 
@@ -70,8 +70,8 @@ public class RolesOfUser {
         if (isEmpty() || roles.isEmpty()) {
             return false;
         }
-        User user = this.findUser().orElseThrow(IllegalStateException::new);
-        User comparisonTarget = roles.findUser().orElseThrow(IllegalStateException::new);
+        DeprecateUser user = this.findUser().orElseThrow(IllegalStateException::new);
+        DeprecateUser comparisonTarget = roles.findUser().orElseThrow(IllegalStateException::new);
         return !user.equals(comparisonTarget);
     }
 

@@ -1,21 +1,55 @@
-package beyondeyesight.user.infra.security.keycloak;
+package beyondeyesight.user.infra.persistence.jpa.keycloak;
 
 import beyondeyesight.user.domain.model.BaseEntity;
 import beyondeyesight.user.domain.model.user.UserEntity;
-import java.time.temporal.ChronoField;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.keycloak.models.ClientModel;
 import org.keycloak.models.GroupModel;
 import org.keycloak.models.RoleModel;
 import org.keycloak.models.UserModel;
 
+@Entity
+@Table(name = "USER")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class User extends BaseEntity implements UserModel, UserEntity {
-    private UUID id;
-    private String userName;
+    @Column(nullable = false, unique = true)
+    private String username;
+    @Column
     private Boolean enabled;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false)
+    private String firstName;
+
+    @Column(nullable = false)
+    private String lastName;
+
+    // todo: 일단 다른 레퍼런스 보고 넣었는데, 굳이 이 필드는 필요 없을듯. 아예 유저의 상태를 이메일 베리파이드, 뭐, 뭐 등 여러가지로 둘듯.
+
+     private User(UUID id, String username, Boolean enabled, String password, String firstName, String lastName) {
+        super(id);
+        this.username = username;
+        this.enabled = enabled;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public static User of(UUID id, String username, Boolean enabled, String password, String firstName, String lastName) {
+         return new User(id, username, enabled, password, firstName, lastName);
+    }
 
     @Override
     public String getId() {
@@ -24,18 +58,18 @@ public class User extends BaseEntity implements UserModel, UserEntity {
 
     @Override
     public String getUsername() {
-        return this.userName;
+        return this.username;
     }
 
     @Override
     public void setUsername(String username) {
-        this.userName = userName;
+        this.username = username;
     }
 
     @Override
     public Long getCreatedTimestamp() {
         //todo: check
-        return this.createdAt.getLong(ChronoField.DAY_OF_WEEK);
+        return null;
     }
 
     @Override
@@ -222,5 +256,13 @@ public class User extends BaseEntity implements UserModel, UserEntity {
     @Override
     public void deleteRoleMapping(RoleModel role) {
         // todo: impl
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+            "id=" + id +
+            ", username='" + username + '\'' +
+            '}';
     }
 }

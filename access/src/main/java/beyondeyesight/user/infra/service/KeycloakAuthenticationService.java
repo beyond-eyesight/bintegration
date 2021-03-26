@@ -1,6 +1,6 @@
 package beyondeyesight.user.infra.service;
 
-import beyondeyesight.user.domain.model.user.User;
+import beyondeyesight.user.domain.model.user.DeprecateUser;
 import beyondeyesight.user.domain.service.AuthenticationService;
 import java.security.Principal;
 import java.util.Set;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class KeycloakAuthenticationService implements AuthenticationService {
 
     @Override
-    public Authentication create(User user) {
+    public Authentication create(DeprecateUser user) {
         return new KeycloakAuthenticationToken(new KeycloakUser(user), true);
     }
 
@@ -22,7 +22,7 @@ public class KeycloakAuthenticationService implements AuthenticationService {
         private final Principal principal;
         private final Set<String> roles;
 
-        public KeycloakUser(User user) {
+        public KeycloakUser(DeprecateUser user) {
             this.principal = user;
             this.roles = user.getRoles().get();
         }

@@ -1,6 +1,6 @@
 package beyondeyesight.user.domain.service;
 
-import beyondeyesight.user.domain.model.user.User;
+import beyondeyesight.user.domain.model.user.DeprecateUser;
 import beyondeyesight.user.domain.model.user.role.Role;
 import beyondeyesight.user.domain.model.user.role.RolesOfUser;
 import beyondeyesight.user.domain.model.user.role.UserRole;
@@ -24,12 +24,12 @@ public class UserService {
         this.userRoleRepository = userRoleRepository;
     }
 
-    User create(String email, String name, String password) {
-        User user = User.withoutRole(email, name, password);
+    DeprecateUser create(String email, String name, String password) {
+        DeprecateUser user = DeprecateUser.withoutRole(email, name, password);
         return addRole(user, Role.outsider());
     }
 
-    User addRole(User user, Role role) {
+    DeprecateUser addRole(DeprecateUser user, Role role) {
         // todo: 만약 persist하지 않은 user가 들어오면 어떻게 되는지 테스트!
         role = roleRepository.save(role);
         UserRole userRole = userRoleRepository.save(new UserRole(user, role));
@@ -37,7 +37,7 @@ public class UserService {
         return user;
     }
 
-    public User findBySignature(String signature) {
+    public DeprecateUser findBySignature(String signature) {
         return userRepository.findByEmail(signature);
     }
 }

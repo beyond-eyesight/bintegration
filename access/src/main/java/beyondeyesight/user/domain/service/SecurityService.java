@@ -1,6 +1,6 @@
 package beyondeyesight.user.domain.service;
 
-import beyondeyesight.user.domain.model.user.User;
+import beyondeyesight.user.domain.model.user.DeprecateUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
@@ -15,7 +15,7 @@ public class SecurityService {
     private final AuthenticationManager authenticationManager;
     private final TokenProvider tokenProvider;
 
-    public String authenticate(User user) {
+    public String authenticate(DeprecateUser user) {
         Authentication authentication = authenticationManager.authenticate(
             authenticationService.create(user)
         );

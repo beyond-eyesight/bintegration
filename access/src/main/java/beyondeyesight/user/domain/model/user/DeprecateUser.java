@@ -7,6 +7,7 @@ import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,7 +21,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class User extends BaseEntity implements UserDetails, Authentication {
+@Table(name = "DEPREACTE_USER")
+public class DeprecateUser extends BaseEntity implements UserDetails, Authentication {
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -33,14 +35,14 @@ public class User extends BaseEntity implements UserDetails, Authentication {
     @NonNull
     private RolesOfUser roles;
 
-    private User(String email, String name, String password) {
+    private DeprecateUser(String email, String name, String password) {
         this.email = email;
         this.name = name;
         this.password = password;
         this.roles = RolesOfUser.empty();
     }
 
-    private User(UUID id, String email, String name, String password, RolesOfUser roles) {
+    private DeprecateUser(UUID id, String email, String name, String password, RolesOfUser roles) {
         super(id);
         this.email = email;
         this.name = name;
@@ -49,12 +51,12 @@ public class User extends BaseEntity implements UserDetails, Authentication {
     }
 
 
-    public static User withoutRole(String email, String name, String password) {
-        return new User(email, name, password, RolesOfUser.empty());
+    public static DeprecateUser withoutRole(String email, String name, String password) {
+        return new DeprecateUser(email, name, password, RolesOfUser.empty());
     }
 
-    public static User withoutRole(UUID id, String email, String name, String password) {
-        return new User(id, email, name, password, RolesOfUser.empty());
+    public static DeprecateUser withoutRole(UUID id, String email, String name, String password) {
+        return new DeprecateUser(id, email, name, password, RolesOfUser.empty());
     }
 
     @Override
