@@ -1,5 +1,6 @@
 package beyondeyesight.user.infra.persistence;
 
+import beyondeyesight.user.domain.model.Realm;
 import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.repository.UserRepository;
 import java.util.UUID;
@@ -16,6 +17,11 @@ public class UserJapRepositoryProxy implements UserRepository {
     @Override
     public User findById(UUID id) {
         return userJpaRepository.findById(id).orElseThrow(IllegalStateException::new);
+    }
+
+    @Override
+    public User findByIdAndRealm(UUID id, Realm realm) {
+        return null;
     }
 
     @Override
