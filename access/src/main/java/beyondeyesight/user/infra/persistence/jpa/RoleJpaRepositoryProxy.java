@@ -1,4 +1,4 @@
-package beyondeyesight.user.infra.persistence;
+package beyondeyesight.user.infra.persistence.jpa;
 
 import beyondeyesight.user.domain.model.user.role.Role;
 import beyondeyesight.user.domain.repository.RoleRepository;

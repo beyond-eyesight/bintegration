@@ -2,9 +2,12 @@ package beyondeyesight.user.infra.persistence;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.model.user.role.Role;
 import beyondeyesight.user.domain.model.user.role.UserRole;
-import beyondeyesight.user.domain.model.user.User;
+import beyondeyesight.user.infra.persistence.jpa.RoleJpaRepository;
+import beyondeyesight.user.infra.persistence.jpa.UserJpaRepository;
+import beyondeyesight.user.infra.persistence.jpa.UserRoleJpaRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

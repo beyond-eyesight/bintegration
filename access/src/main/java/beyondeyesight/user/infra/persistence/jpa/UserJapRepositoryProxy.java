@@ -1,4 +1,4 @@
-package beyondeyesight.user.infra.persistence;
+package beyondeyesight.user.infra.persistence.jpa;
 
 import beyondeyesight.user.domain.model.Realm;
 import beyondeyesight.user.domain.model.user.User;

@@ -2,7 +2,6 @@ package beyondeyesight.user.domain.model.user;
 
 import beyondeyesight.user.domain.model.BaseEntity;
 import beyondeyesight.user.domain.model.user.role.RolesOfUser;
-import java.security.Principal;
 import java.util.Collection;
 import java.util.UUID;
 import javax.persistence.Column;
@@ -90,7 +89,7 @@ public class User extends BaseEntity implements UserDetails, Authentication {
 
     @Override
     public String getUsername() {
-        return getId().toString();
+        return getId();
     }
 
     public void addRoles(RolesOfUser roles) {
