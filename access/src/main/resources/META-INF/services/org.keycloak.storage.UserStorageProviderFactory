@@ -1,2 +1,1 @@
-# SPI class implementation
-beyondeyesight.user.infra.security.keycloak.UserJpaRepositoryFactory
+beyondeyesight.user.infra.adapter.keycloak.UserAdapterFactory

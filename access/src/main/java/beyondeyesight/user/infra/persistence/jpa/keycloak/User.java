@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.keycloak.models.ClientModel;
 import org.keycloak.models.GroupModel;
@@ -18,6 +19,7 @@ import org.keycloak.models.RoleModel;
 import org.keycloak.models.UserModel;
 
 @Entity
+@Getter
 @Table(name = "USER")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)

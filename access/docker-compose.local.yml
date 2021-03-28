@@ -29,6 +29,8 @@ services:
       DB_PASSWORD: ttkmw
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: Pa55w0rd
+    volumes:
+      - ./tmp/access-0.0.1.jar:/opt/jboss/keycloak/standalone/deployments/access-0.0.1.jar
     ports:
       - 8180:8080
     depends_on:
