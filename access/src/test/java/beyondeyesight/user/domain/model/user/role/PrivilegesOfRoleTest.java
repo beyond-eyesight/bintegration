@@ -1,9 +1,10 @@
 package beyondeyesight.user.domain.model.user.role;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class PrivilegesOfRoleTest {
 

@@ -1,11 +1,12 @@
 package beyondeyesight.fellowship.domain.model.chat;
 
-import java.util.UUID;
 import lombok.Data;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
+
+import java.util.UUID;
 
 
 //todo: check if serializable is needed

@@ -16,10 +16,10 @@ public class SecurityService {
 
     public String authenticate(String signature, String password) {
         Authentication authentication = authenticationManager.authenticate(
-            new UsernamePasswordAuthenticationToken(
-                signature,
-                password
-            )
+                new UsernamePasswordAuthenticationToken(
+                        signature,
+                        password
+                )
         );
 
         // todo: 컨텍스트를 여기에서 가져와도 되나?

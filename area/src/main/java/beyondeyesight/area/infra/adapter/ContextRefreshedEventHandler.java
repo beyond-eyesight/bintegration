@@ -2,15 +2,16 @@ package beyondeyesight.area.infra.adapter;
 
 import beyondeyesight.area.domain.Zone;
 import beyondeyesight.area.domain.repository.ZoneRepository;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.data.elasticsearch.core.geo.GeoJsonPolygon;
 import org.springframework.data.geo.Point;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 
 // todo: 패키지를 옮기는게 좋을듯. 임시로 listner 패키지에.
 @Component

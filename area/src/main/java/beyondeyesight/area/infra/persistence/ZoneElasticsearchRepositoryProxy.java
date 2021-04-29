@@ -2,11 +2,12 @@ package beyondeyesight.area.infra.persistence;
 
 import beyondeyesight.area.domain.Zone;
 import beyondeyesight.area.domain.repository.ZoneRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Repository;
 
 @RequiredArgsConstructor
 @Repository

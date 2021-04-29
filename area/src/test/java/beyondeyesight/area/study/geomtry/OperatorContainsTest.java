@@ -1,20 +1,17 @@
 package beyondeyesight.area.study.geomtry;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
-import com.esri.core.geometry.GeoJsonImportFlags;
+import com.esri.core.geometry.*;
 import com.esri.core.geometry.Geometry.Type;
-import com.esri.core.geometry.OperatorContains;
-import com.esri.core.geometry.OperatorImportFromGeoJson;
-import com.esri.core.geometry.Point;
-import com.esri.core.geometry.Polygon;
-import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.data.elasticsearch.core.geo.GeoJsonPoint;
 import org.springframework.data.elasticsearch.core.geo.GeoJsonPolygon;
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
+
+import java.util.stream.Stream;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class OperatorContainsTest {
 

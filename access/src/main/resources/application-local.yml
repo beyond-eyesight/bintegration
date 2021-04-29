@@ -1,4 +1,5 @@
 spring:
+
   config:
     import: "optional:configserver:"
   cloud:
@@ -19,6 +20,15 @@ spring:
         show-sql: true
         format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
+
+keycloak:
+  auth-server-url: http://localhost:8180/auth
+# todo: refac tmp
+  realm: SpringBootKeycloak
+  resource: login-app
+  public-client: true
+  enable-basic-auth: true
+
 
 eureka:
   instance:

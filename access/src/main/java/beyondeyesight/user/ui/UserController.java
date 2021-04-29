@@ -1,17 +1,18 @@
 package beyondeyesight.user.ui;
 
+import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.model.user.dto.SignInRequest;
 import beyondeyesight.user.domain.model.user.dto.SignInResponse;
-import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.service.SecurityService;
 import beyondeyesight.user.domain.service.UserService;
-import java.net.URI;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.net.URI;
 
 @RestController
 @RequiredArgsConstructor

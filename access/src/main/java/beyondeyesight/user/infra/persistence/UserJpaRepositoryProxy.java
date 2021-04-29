@@ -2,13 +2,14 @@ package beyondeyesight.user.infra.persistence;
 
 import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.repository.UserRepository;
-import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Repository
 @RequiredArgsConstructor
-public class UserJapRepositoryProxy implements UserRepository {
+public class UserJpaRepositoryProxy implements UserRepository {
 
     private final UserJpaRepository userJpaRepository;
 

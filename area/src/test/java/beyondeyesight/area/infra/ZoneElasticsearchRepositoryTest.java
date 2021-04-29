@@ -1,14 +1,8 @@
 package beyondeyesight.area.infra;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import beyondeyesight.area.config.TestRestClientConfig;
 import beyondeyesight.area.domain.Zone;
 import beyondeyesight.area.infra.persistence.ZoneElasticsearchRepository;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,6 +16,13 @@ import org.springframework.data.geo.Point;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Stream;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ActiveProfiles("test")
 @ExtendWith(SpringExtension.class)

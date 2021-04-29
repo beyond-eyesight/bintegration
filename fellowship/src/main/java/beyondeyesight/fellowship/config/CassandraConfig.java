@@ -1,7 +1,6 @@
 package beyondeyesight.fellowship.config;
 
 import com.datastax.oss.driver.api.core.CqlSessionBuilder;
-import javax.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.cassandra.CassandraAutoConfiguration;
@@ -11,6 +10,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.cassandra.config.SchemaAction;
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
+
+import javax.annotation.Nonnull;
 
 
 

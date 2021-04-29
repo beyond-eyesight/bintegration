@@ -2,24 +2,24 @@ package beyondeyesight.user.domain.model.user;
 
 import beyondeyesight.user.domain.model.BaseEntity;
 import beyondeyesight.user.domain.model.user.role.RolesOfUser;
-import java.util.Collection;
-import java.util.UUID;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import javax.persistence.Table;
+import java.util.Collection;
+import java.util.UUID;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Table(name = "DEPREACTE_USER")
 public class User extends BaseEntity implements UserDetails {
+
     @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
@@ -98,5 +98,4 @@ public class User extends BaseEntity implements UserDetails {
             ", roles=" + roles +
             '}';
     }
-
 }

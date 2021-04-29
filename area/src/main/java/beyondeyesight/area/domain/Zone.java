@@ -1,8 +1,6 @@
 package beyondeyesight.area.domain;
 
 
-import java.util.Objects;
-import java.util.UUID;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.TypeAlias;
@@ -10,6 +8,9 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.core.geo.GeoJson;
+
+import java.util.Objects;
+import java.util.UUID;
 
 @Getter
 @TypeAlias("zone")

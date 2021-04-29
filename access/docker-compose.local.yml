@@ -1,19 +1,38 @@
 version: '3.3'
 
+volumes:
+  data:
+    driver: local
+
 services:
-  db:
+  mysql:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
       MYSQL_DATABASE: beyondeyesight
       MYSQL_USER: beyondeyesight
-      MYSQL_ROOT_PASSWORD: ttkmw
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_PASSWORD: ttkmw
     volumes:
       - data:/var/lib/mysql
     container_name: mysql
     ports:
       - 3306:3306
-volumes:
-  data:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    environment:
+      DB_VENDOR: MYSQL
+      DB_ADDR: mysql
+      DB_DATABASE: beyondeyesight
+      DB_USER: beyondeyesight
+      DB_PASSWORD: ttkmw
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+    volumes:
+      - ./src/main/resources/provider/example/build/libs/example-1.0-SNAPSHOT.jar:/opt/jboss/keycloak/standalone/deployments/example-1.0-SNAPSHOT.jar # todo: check 깔끔
+    ports:
+      - 8180:8080
+    depends_on:
+      - mysql
+# REFERENCE: https://github.com/keycloak/keycloak-containers/blob/master/docker-compose-examples/keycloak-mysql.yml

@@ -1,16 +1,16 @@
 package beyondeyesight.user.infra.persistence;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.model.user.role.Role;
 import beyondeyesight.user.domain.model.user.role.RolesOfUser;
 import beyondeyesight.user.domain.model.user.role.UserRole;
-import beyondeyesight.user.domain.model.user.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ActiveProfiles("test")
 @DataJpaTest
@@ -37,7 +37,8 @@ public class UserJpaRepositoryTest {
     public void saveAndFindByEmail() {
         Role role = Role.outsider();
         role = roleJpaRepository.save(role);
-        User user = userJpaRepository.save(User.withoutRole("wom2277@naver.com", "geunwon", "1234"));
+        User user = userJpaRepository.save(
+            User.withoutRole("wom2277@naver.com", "geunwon", "1234"));
 
         UserRole userRole = userRoleJpaRepository.save(new UserRole(user, role));
         user.addRoles(RolesOfUser.of(userRole));

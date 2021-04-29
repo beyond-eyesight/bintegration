@@ -1,13 +1,14 @@
 package beyondeyesight.fellowship.study;
 
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import beyondeyesight.fellowship.domain.model.chat.ChatMessage;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.UUID;
 import org.junit.jupiter.api.Test;
+
+import java.util.UUID;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ObjectMapperTest {
 

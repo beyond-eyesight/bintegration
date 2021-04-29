@@ -1,11 +1,15 @@
 package beyondeyesight.area.config.elasticsearch;
 
-import static org.apache.http.protocol.HttpCoreContext.HTTP_TARGET_HOST;
-
 import com.amazonaws.DefaultRequest;
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.Signer;
 import com.amazonaws.http.HttpMethodName;
+import org.apache.http.*;
+import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.BasicHttpEntity;
+import org.apache.http.message.BasicHeader;
+import org.apache.http.protocol.HttpContext;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URI;
@@ -14,17 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import org.apache.http.Header;
-import org.apache.http.HttpEntityEnclosingRequest;
-import org.apache.http.HttpException;
-import org.apache.http.HttpHost;
-import org.apache.http.HttpRequest;
-import org.apache.http.HttpRequestInterceptor;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.entity.BasicHttpEntity;
-import org.apache.http.message.BasicHeader;
-import org.apache.http.protocol.HttpContext;
+
+import static org.apache.http.protocol.HttpCoreContext.HTTP_TARGET_HOST;
 
 /**
  * An {@link HttpRequestInterceptor} that signs requests using any AWS {@link Signer}
