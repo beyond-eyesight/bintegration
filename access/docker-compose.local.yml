@@ -30,7 +30,7 @@ services:
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: Pa55w0rd
     volumes:
-      - ./tmp/access-0.0.1.jar:/opt/jboss/keycloak/standalone/deployments/access-0.0.1.jar
+      - ./src/main/resources/provider/example/build/libs/example-1.0-SNAPSHOT.jar:/opt/jboss/keycloak/standalone/deployments/example-1.0-SNAPSHOT.jar
     ports:
       - 8180:8080
     depends_on:

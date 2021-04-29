@@ -1,8 +1,0 @@
-UserAdapter.java
- UserAdapter
-UserEntity.java
- UserEntity
-ExampleUserStorageProvider.java
- ExampleUserStorageProvider
-ExampleUserStorageProviderFactory.java
- ExampleUserStorageProviderFactory
