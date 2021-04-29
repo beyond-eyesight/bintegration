@@ -1,6 +1,7 @@
 package beyondeyesight.user.domain.repository;
 
 import beyondeyesight.user.domain.model.user.User;
+
 import java.util.UUID;
 
 // todo: optional로 바꾸기

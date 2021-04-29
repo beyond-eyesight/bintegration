@@ -1,7 +1,5 @@
 package beyondeyesight.fellowship.config;
 
-import static org.mockito.Mockito.mock;
-
 import beyondeyesight.fellowship.domain.model.chat.ChatMessage;
 import beyondeyesight.fellowship.infra.adapter.RedisSubscriber;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,6 +15,8 @@ import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.messaging.simp.SimpMessageSendingOperations;
+
+import static org.mockito.Mockito.mock;
 
 @Import({LettuceConnectionFactory.class})
 @TestConfiguration

@@ -1,6 +1,5 @@
 package beyondeyesight.fellowship.config.websocket;
 
-import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.messaging.simp.stomp.StompCommand;
@@ -9,6 +8,8 @@ import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.WebSocketHandlerDecorator;
+
+import java.util.Optional;
 
 /**
  * Reference: https://stackoverflow.com/questions/47373402/spring-stromp-incomplete-frame

@@ -2,20 +2,16 @@ package beyondeyesight.user.domain.model.user;
 
 import beyondeyesight.user.domain.model.BaseEntity;
 import beyondeyesight.user.domain.model.user.role.RolesOfUser;
-import java.util.Collection;
-import java.util.UUID;
+import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
+import java.util.Collection;
+import java.util.UUID;
 
 @Entity
 @Getter

@@ -1,12 +1,13 @@
 package beyondeyesight.user.domain.model.user.role;
 
 import beyondeyesight.user.domain.model.BaseEntity;
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)

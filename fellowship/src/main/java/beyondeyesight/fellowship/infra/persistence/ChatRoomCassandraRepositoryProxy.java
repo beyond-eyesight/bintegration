@@ -2,8 +2,9 @@ package beyondeyesight.fellowship.infra.persistence;
 
 import beyondeyesight.fellowship.domain.model.chat.ChatRoom;
 import beyondeyesight.fellowship.domain.repository.ChatRoomRepository;
-import java.util.List;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class ChatRoomCassandraRepositoryProxy implements ChatRoomRepository {

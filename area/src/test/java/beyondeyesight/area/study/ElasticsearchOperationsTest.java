@@ -1,12 +1,7 @@
 package beyondeyesight.area.study;
 
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import beyondeyesight.area.domain.Zone;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.elasticsearch.client.ClientConfiguration;
@@ -20,6 +15,12 @@ import org.springframework.data.elasticsearch.core.query.IndexQueryBuilder;
 import org.springframework.data.geo.Point;
 import org.testcontainers.elasticsearch.ElasticsearchContainer;
 import org.testcontainers.utility.DockerImageName;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class ElasticsearchOperationsTest {

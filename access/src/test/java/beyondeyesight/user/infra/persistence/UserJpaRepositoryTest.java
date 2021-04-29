@@ -1,7 +1,5 @@
 package beyondeyesight.user.infra.persistence;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.model.user.role.Role;
 import beyondeyesight.user.domain.model.user.role.RolesOfUser;
@@ -11,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ActiveProfiles("test")
 @DataJpaTest

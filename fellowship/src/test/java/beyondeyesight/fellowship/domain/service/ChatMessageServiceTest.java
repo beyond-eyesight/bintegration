@@ -1,7 +1,5 @@
 package beyondeyesight.fellowship.domain.service;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import beyondeyesight.fellowship.config.TestCassandraConfig;
 import beyondeyesight.fellowship.config.TestRedisConfig;
 import beyondeyesight.fellowship.infra.adapter.RedisPublisher;
@@ -13,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootContextLoader;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @ActiveProfiles("test")
 @ExtendWith(SpringExtension.class)

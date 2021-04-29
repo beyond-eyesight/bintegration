@@ -5,10 +5,11 @@ import beyondeyesight.user.domain.service.TokenProvider;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import java.util.Date;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 @Service
 public class JwtTokenProvider implements TokenProvider {

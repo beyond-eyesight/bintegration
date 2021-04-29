@@ -1,10 +1,7 @@
 package beyondeyesight.fellowship.infra.persistence;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import beyondeyesight.fellowship.config.TestCassandraConfig;
 import beyondeyesight.fellowship.domain.model.chat.ChatMessage;
-import java.util.UUID;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -13,6 +10,10 @@ import org.springframework.boot.test.context.SpringBootContextLoader;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import java.util.UUID;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 /*

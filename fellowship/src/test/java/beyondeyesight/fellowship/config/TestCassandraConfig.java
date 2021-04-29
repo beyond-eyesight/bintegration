@@ -2,9 +2,6 @@ package beyondeyesight.fellowship.config;
 
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Host;
-import java.net.InetSocketAddress;
-import java.util.Collections;
-import javax.annotation.Nonnull;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +13,10 @@ import org.springframework.data.cassandra.core.cql.keyspace.CreateKeyspaceSpecif
 import org.springframework.data.cassandra.repository.config.EnableCassandraRepositories;
 import org.testcontainers.containers.CassandraContainer;
 import org.testcontainers.utility.DockerImageName;
+
+import javax.annotation.Nonnull;
+import java.net.InetSocketAddress;
+import java.util.Collections;
 
 @Profile("test")
 @EnableCassandraRepositories(basePackages = "beyondeyesight.fellowship.infra.persistence")
