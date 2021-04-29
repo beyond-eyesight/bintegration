@@ -3,7 +3,7 @@ package beyondeyesight.user.domain.model.user.role;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import beyondeyesight.user.domain.model.user.DeprecateUser;
+import beyondeyesight.user.domain.model.user.User;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -23,7 +23,7 @@ public class RolesOfUserTest {
             memberRole.add(RolePrivilege.of(memberRole, privilege));
         }
 
-        DeprecateUser user = DeprecateUser.withoutRole("email", "name", "password");
+        User user = User.withoutRole("email", "name", "password");
 
         RolesOfUser roles1 = RolesOfUser.of(new UserRole(user, outsiderRole));
         RolesOfUser roles2 = RolesOfUser.of(new UserRole(user, memberRole));
@@ -43,10 +43,10 @@ public class RolesOfUserTest {
             memberRole.add(RolePrivilege.of(memberRole, privilege));
         }
 
-        DeprecateUser user1 = DeprecateUser
+        User user1 = User
             .withoutRole(UUID.fromString("1d96c03e-65b3-473c-a533-4d6283ad41e5"), "email", "name",
                 "password");
-        DeprecateUser user2 = DeprecateUser
+        User user2 = User
             .withoutRole(UUID.fromString("6dc16589-f66d-4549-b674-9ccc2e02f88d"), "email", "name",
                 "password");
 
@@ -69,7 +69,7 @@ public class RolesOfUserTest {
             memberRole.add(RolePrivilege.of(memberRole, privilege));
         }
 
-        DeprecateUser user = DeprecateUser.withoutRole("email", "name", "password");
+        User user = User.withoutRole("email", "name", "password");
 
         RolesOfUser roles = RolesOfUser.empty();
         roles = roles.add(new UserRole(user, memberRole));
@@ -80,7 +80,7 @@ public class RolesOfUserTest {
     @Test
     void add() {
         Role role = Role.outsider();
-        DeprecateUser user = DeprecateUser.withoutRole("email", "name", "password");
+        User user = User.withoutRole("email", "name", "password");
         UserRole userRole = new UserRole(user, role);
         RolesOfUser roles = RolesOfUser.empty();
 

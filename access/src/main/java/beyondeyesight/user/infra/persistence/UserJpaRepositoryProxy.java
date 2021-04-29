@@ -1,36 +1,31 @@
-package beyondeyesight.user.infra.persistence.jpa;
+package beyondeyesight.user.infra.persistence;
 
-import beyondeyesight.user.domain.model.Realm;
-import beyondeyesight.user.domain.model.user.DeprecateUser;
+import beyondeyesight.user.domain.model.user.User;
 import beyondeyesight.user.domain.repository.UserRepository;
-import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Repository
 @RequiredArgsConstructor
-public class UserJapRepositoryProxy implements UserRepository {
+public class UserJpaRepositoryProxy implements UserRepository {
 
     private final UserJpaRepository userJpaRepository;
 
     // todo: check optional, 등등
     @Override
-    public DeprecateUser findById(UUID id) {
+    public User findById(UUID id) {
         return userJpaRepository.findById(id).orElseThrow(IllegalStateException::new);
     }
 
     @Override
-    public DeprecateUser findByIdAndRealm(UUID id, Realm realm) {
-        return null;
-    }
-
-    @Override
-    public DeprecateUser findByEmail(String email) {
+    public User findByEmail(String email) {
         return userJpaRepository.findByEmail(email);
     }
 
     @Override
-    public DeprecateUser save(DeprecateUser user) {
+    public User save(User user) {
         return userJpaRepository.save(user);
     }
 }

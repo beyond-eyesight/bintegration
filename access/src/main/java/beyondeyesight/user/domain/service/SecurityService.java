@@ -1,8 +1,9 @@
 package beyondeyesight.user.domain.service;
 
-import beyondeyesight.user.domain.model.user.DeprecateUser;
+import beyondeyesight.user.domain.model.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -11,13 +12,15 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SecurityService {
 
-    private final AuthenticationService authenticationService;
     private final AuthenticationManager authenticationManager;
     private final TokenProvider tokenProvider;
 
-    public String authenticate(DeprecateUser user) {
+    public String authenticate(String signature, String password) {
         Authentication authentication = authenticationManager.authenticate(
-            authenticationService.create(user)
+                new UsernamePasswordAuthenticationToken(
+                        signature,
+                        password
+                )
         );
 
         // todo: 컨텍스트를 여기에서 가져와도 되나?

@@ -11,7 +11,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
-@Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Role extends BaseEntity {

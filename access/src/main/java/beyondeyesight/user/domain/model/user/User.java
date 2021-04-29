@@ -22,7 +22,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Table(name = "DEPREACTE_USER")
-public class DeprecateUser extends BaseEntity implements UserDetails, Authentication {
+public class User extends BaseEntity implements UserDetails {
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -35,14 +35,14 @@ public class DeprecateUser extends BaseEntity implements UserDetails, Authentica
     @NonNull
     private RolesOfUser roles;
 
-    private DeprecateUser(String email, String name, String password) {
+    private User(String email, String name, String password) {
         this.email = email;
         this.name = name;
         this.password = password;
         this.roles = RolesOfUser.empty();
     }
 
-    private DeprecateUser(UUID id, String email, String name, String password, RolesOfUser roles) {
+    private User(UUID id, String email, String name, String password, RolesOfUser roles) {
         super(id);
         this.email = email;
         this.name = name;
@@ -51,12 +51,12 @@ public class DeprecateUser extends BaseEntity implements UserDetails, Authentica
     }
 
 
-    public static DeprecateUser withoutRole(String email, String name, String password) {
-        return new DeprecateUser(email, name, password, RolesOfUser.empty());
+    public static User withoutRole(String email, String name, String password) {
+        return new User(email, name, password, RolesOfUser.empty());
     }
 
-    public static DeprecateUser withoutRole(UUID id, String email, String name, String password) {
-        return new DeprecateUser(id, email, name, password, RolesOfUser.empty());
+    public static User withoutRole(UUID id, String email, String name, String password) {
+        return new User(id, email, name, password, RolesOfUser.empty());
     }
 
     @Override
@@ -65,33 +65,8 @@ public class DeprecateUser extends BaseEntity implements UserDetails, Authentica
     }
 
     @Override
-    public Object getCredentials() {
-        return null;
-    }
-
-    @Override
-    public Object getDetails() {
-        return this;
-    }
-
-    @Override
-    public Object getPrincipal() {
-        return this;
-    }
-
-    @Override
-    public boolean isAuthenticated() {
-        return false;
-    }
-
-    @Override
-    public void setAuthenticated(boolean isAuthenticated) throws IllegalArgumentException {
-
-    }
-
-    @Override
     public String getUsername() {
-        return getId();
+        return getId().toString();
     }
 
     public void addRoles(RolesOfUser roles) {

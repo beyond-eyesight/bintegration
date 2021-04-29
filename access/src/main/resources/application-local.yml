@@ -1,6 +1,5 @@
 spring:
-  main:
-    allow-bean-definition-overriding: true
+
   config:
     import: "optional:configserver:"
   cloud:
@@ -24,28 +23,11 @@ spring:
 
 keycloak:
   auth-server-url: http://localhost:8180/auth
+# todo: refac tmp
   realm: SpringBootKeycloak
   resource: login-app
   public-client: true
   enable-basic-auth: true
-#  security-constraints:
-#    - auth-roles:
-#      - user
-#    - security-collections:
-#      - patterns:
-#        - /customer/*
-
-
-#    securityCollections:
-#      patterns: /customer/*
-
-#    securityCollections[0]:
-#      patterns[0]: /customer/*
-#    auth-roles[0]: user
-
-
-
-#    patterns[0]: /customer/*
 
 
 eureka:

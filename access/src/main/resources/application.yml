@@ -5,7 +5,7 @@ spring:
   application:
     name: access
   profiles:
-    active: local
+    active: dev
 
 # todo: config 서버로 옮기기
 jwt:

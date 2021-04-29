@@ -1,7 +1,7 @@
 package beyondeyesight.user.domain.model.user.role;
 
 import beyondeyesight.user.domain.model.BaseEntity;
-import beyondeyesight.user.domain.model.user.DeprecateUser;
+import beyondeyesight.user.domain.model.user.User;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,21 +20,21 @@ public class UserRole extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private DeprecateUser user;
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id", nullable = false)
     private Role role;
 
     // default
-    public UserRole(DeprecateUser user, Role role) {
+    public UserRole(User user, Role role) {
         // todo: check! nullable로 이미 db 레이어에서 검증이 있기에 중복...? 없는 게 나을지 확인
         validate(user, role);
         this.user = user;
         this.role = role;
     }
 
-    private void validate(DeprecateUser user, Role role) {
+    private void validate(User user, Role role) {
         if (Objects.isNull(user) || Objects.isNull(role)) {
             throw new IllegalArgumentException(String.format("%s 혹은 %s가 null 입니다.", user, role));
         }

@@ -7,10 +7,8 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -19,6 +17,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
 @EqualsAndHashCode(of = "id")
 @ToString
 public abstract class BaseEntity {
@@ -27,20 +26,15 @@ public abstract class BaseEntity {
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @Column(columnDefinition = "BINARY(16)")
-    protected UUID id;
+    private UUID id;
 
     @CreatedDate
-    protected LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     @LastModifiedDate
-    protected LocalDateTime modifiedAt;
+    private LocalDateTime modifiedAt;
 
-    protected LocalDateTime deletedAt;
-
-
-    public String getId() {
-        return this.id.toString();
-    }
+    private LocalDateTime deletedAt;
 
     protected BaseEntity(UUID id) {
         this.id = id;

@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import beyondeyesight.user.domain.model.user.role.Privilege;
 import beyondeyesight.user.domain.model.user.role.Role;
 import beyondeyesight.user.domain.model.user.role.RolePrivilege;
-import beyondeyesight.user.infra.persistence.jpa.RoleJpaRepository;
+
 import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ class RoleJpaRepositoryTest {
         saved.add(RolePrivilege.of(saved, readOnly));
         assertThat(saved.countPrivileges()).isEqualTo(1);
 
-        Role found = roleJpaRepository.findById(UUID.fromString(saved.getId()))
+        Role found = roleJpaRepository.findById(saved.getId())
             .orElseThrow(IllegalStateException::new);
         assertThat(found.countPrivileges()).isEqualTo(1);
     }

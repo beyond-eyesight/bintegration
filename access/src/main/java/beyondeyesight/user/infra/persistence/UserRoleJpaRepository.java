@@ -1,4 +1,4 @@
-package beyondeyesight.user.infra.persistence.jpa;
+package beyondeyesight.user.infra.persistence;
 
 import beyondeyesight.user.domain.model.user.role.UserRole;
 import java.util.UUID;
