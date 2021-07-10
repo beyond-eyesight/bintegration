@@ -9,6 +9,7 @@ import java.net.URI;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,11 @@ public class UserController {
 
     private final SecurityService securityService;
     private final UserService userService;
+
+    @GetMapping(value = "/try")
+    public String trytry() {
+        return "trytry";
+    }
 
     @PostMapping(value = SIGN_IN_ENDPOINT)
     public ResponseEntity<SignInResponse> signIn(@RequestBody final SignInRequest signInRequest) {
