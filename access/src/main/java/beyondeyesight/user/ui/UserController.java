@@ -24,8 +24,8 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping(value = "/try")
-    public String trytry() {
-        return "trytry";
+    public ResponseEntity<String> trytryGet() {
+        return ResponseEntity.ok("kkkkaaa");
     }
 
     @PostMapping(value = SIGN_IN_ENDPOINT)
