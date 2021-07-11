@@ -9,10 +9,7 @@ import java.net.URI;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,6 +20,7 @@ public class UserController {
     private final SecurityService securityService;
     private final UserService userService;
 
+    @CrossOrigin
     @GetMapping(value = "/try")
     public ResponseEntity<String> trytryGet() {
         return ResponseEntity.ok("kkkkaaa");
